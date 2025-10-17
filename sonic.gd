@@ -3,7 +3,7 @@ extends Node2D
 @export var line: Line2D
 var index: int = 1
 
-const SPEED = 250.0
+@export var SPEED:int = 250
 
 
 # Called when the node enters the scene tree for the first time.

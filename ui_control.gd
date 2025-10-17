@@ -7,6 +7,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	visible = true
 	game_over_screen.visible = false
 	success_screen.visible = false
 

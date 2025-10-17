@@ -26,6 +26,7 @@ shape = SubResource("RectangleShape2D_kpjcp")
 zoom = Vector2(2, 2)
 
 [node name="UIControl" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -33,7 +34,6 @@ offset_bottom = 40.0
 script = ExtResource("3_e80uo")
 
 [node name="GameOverScreen" type="Control" parent="UIControl"]
-visible = false
 anchors_preset = 0
 offset_left = -1184.0
 offset_top = -896.0
