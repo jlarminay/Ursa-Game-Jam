@@ -1,7 +1,20 @@
 {
   "editor.tabSize": 2,
-	"editor.insertSpaces": false,
-	"cSpell.words": [
-		"onready"
-	]
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": false,
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "editor.formatOnSave": true,
+  "[gdscript]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.detectIndentation": false,
+    "editor.formatOnSave": true
+  },
+  "editor.codeActionsOnSave": {
+    "source.convertIndentation": "explicit"
+  },
+  "cSpell.words": [
+    "onready"
+  ]
 }
