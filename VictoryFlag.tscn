@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bgoab5theembs"]
+
+[ext_resource type="Script" uid="uid://cmvit11ahnuxm" path="res://victory_flag.gd" id="1_fgast"]
+[ext_resource type="Texture2D" uid="uid://06fti8b7qb24" path="res://icon.svg" id="2_4grvc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bcbcq"]
+
+[node name="VictoryFlag" type="Area2D"]
+scale = Vector2(0.25, 0.25)
+collision_layer = 16
+script = ExtResource("1_fgast")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_bcbcq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 1, 0.039215688, 1)
+texture = ExtResource("2_4grvc")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
