@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://06fti8b7qb24" path="res://icon.svg" id="1_xhfnw"]
 [ext_resource type="Script" uid="uid://yrl0ghhvkkdg" path="res://Entities/UI/ui_control.gd" id="3_e80uo"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kpjcp"]
-size = Vector2(128, 128)
+[sub_resource type="CircleShape2D" id="CircleShape2D_vweq0"]
+radius = 64.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_kpjcp"]
 font_size = 241
@@ -15,12 +15,14 @@ font_color = Color(0, 0, 1, 1)
 scale = Vector2(0.25, 0.25)
 collision_mask = 18
 script = ExtResource("1_kpjcp")
+SPEED = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_xhfnw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_kpjcp")
+scale = Vector2(0.9, 0.9)
+shape = SubResource("CircleShape2D_vweq0")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)

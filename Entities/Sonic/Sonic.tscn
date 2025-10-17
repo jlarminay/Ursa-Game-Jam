@@ -6,6 +6,7 @@
 [node name="Sonic" type="Node2D"]
 scale = Vector2(0.25, 0.25)
 script = ExtResource("1_cqb71")
+SPEED = 101
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0, 0.26666668, 1, 1)
