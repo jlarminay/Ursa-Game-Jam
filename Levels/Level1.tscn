@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=4 uid="uid://des5cmcp42tbl"]
 
-[ext_resource type="PackedScene" uid="uid://dtjbrby2lwwfa" path="res://Player.tscn" id="1_c6gwx"]
-[ext_resource type="Texture2D" uid="uid://crvqrjki133tg" path="res://tilemap.png" id="2_2dftf"]
-[ext_resource type="PackedScene" uid="uid://d35ih62q7bbc3" path="res://Sonic.tscn" id="3_bcbcq"]
-[ext_resource type="PackedScene" uid="uid://bgoab5theembs" path="res://VictoryFlag.tscn" id="4_js7pq"]
+[ext_resource type="PackedScene" uid="uid://dtjbrby2lwwfa" path="res://Entities/Player/Player.tscn" id="1_c6gwx"]
+[ext_resource type="Texture2D" uid="uid://crvqrjki133tg" path="res://Global/tilemap.png" id="2_2dftf"]
+[ext_resource type="PackedScene" uid="uid://d35ih62q7bbc3" path="res://Entities/Sonic/Sonic.tscn" id="3_bcbcq"]
+[ext_resource type="PackedScene" uid="uid://bgoab5theembs" path="res://Entities/Flag/VictoryFlag.tscn" id="4_js7pq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bcbcq"]
 texture = ExtResource("2_2dftf")

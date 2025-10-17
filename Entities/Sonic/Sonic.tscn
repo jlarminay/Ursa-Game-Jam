@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://d35ih62q7bbc3"]
 
-[ext_resource type="Script" uid="uid://bog5kefwdvfbe" path="res://sonic.gd" id="1_cqb71"]
+[ext_resource type="Script" uid="uid://bog5kefwdvfbe" path="res://Entities/Sonic/sonic.gd" id="1_cqb71"]
 [ext_resource type="Texture2D" uid="uid://06fti8b7qb24" path="res://icon.svg" id="1_s8pwu"]
 
 [node name="Sonic" type="Node2D"]
