@@ -13,7 +13,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Game.level_success:
 		success_screen.visible = true
 
@@ -22,14 +22,11 @@ func _process(delta: float) -> void:
 
 
 func _on_restart_pressed() -> void:
-	Game.can_player_move = true
-	Game.can_sonic_move = true
-	Game.game_over = false
-	get_tree().reload_current_scene()
+	Game.restart()
 
 
 func _on_exit_pressed() -> void:
-	get_tree().quit()
+	Game.exit()
 
 
 func _on_next_level_pressed() -> void:

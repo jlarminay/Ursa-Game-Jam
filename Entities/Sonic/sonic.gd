@@ -1,10 +1,8 @@
 extends Node2D
 
 @export var line: Line2D
-var index: int = 1
-
 @export var SPEED:int = 250
-
+var index: int = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -27,5 +25,3 @@ func _process(delta: float) -> void:
 	if index >= line.get_point_count():
 		index = line.get_point_count() - 1
 		Game.game_over = true
-		Game.can_player_move = false
-		Game.can_sonic_move = false
