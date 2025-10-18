@@ -1,0 +1,71 @@
+[gd_scene load_steps=10 format=3 uid="uid://tk14juuejqmb"]
+
+[ext_resource type="Script" uid="uid://csbkxhnrjioe7" path="res://Entities/Item/item.gd" id="1_b2q6e"]
+[ext_resource type="Texture2D" uid="uid://dl4lxxuu5ajys" path="res://Entities/Item/Crops.png" id="2_fmc54"]
+[ext_resource type="Texture2D" uid="uid://q6pmhqp28du3" path="res://Entities/Item/Food 0.1.png" id="3_e50pi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q26ws"]
+radius = 8.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bwui2"]
+atlas = ExtResource("2_fmc54")
+region = Rect2(320, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eusam"]
+atlas = ExtResource("2_fmc54")
+region = Rect2(32, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kfrrh"]
+atlas = ExtResource("2_fmc54")
+region = Rect2(176, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1q5jg"]
+atlas = ExtResource("3_e50pi")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bxdmf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bwui2")
+}],
+"loop": true,
+"name": &"Apple",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eusam")
+}],
+"loop": true,
+"name": &"Carrot",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kfrrh")
+}],
+"loop": true,
+"name": &"Flowers",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1q5jg")
+}],
+"loop": true,
+"name": &"Honey",
+"speed": 5.0
+}]
+
+[node name="Item" type="Area2D"]
+collision_layer = 4
+script = ExtResource("1_b2q6e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.75, 0.75)
+shape = SubResource("CircleShape2D_q26ws")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_bxdmf")
+animation = &"Honey"
