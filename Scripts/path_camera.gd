@@ -6,8 +6,8 @@ extends Camera2D
 @export var player: CharacterBody2D
 
 # Progress tracking
-var path_duration: float = 0.0 # Time to complete the path
-var zoom_duration: float = 2.0 # Time to transition zoom to player camera
+var path_duration: float = 0 # Time to complete the path
+var zoom_duration: float = 0 # Time to transition zoom to player camera
 var progress: float = 0.0
 var zoom_progress: float = 0.0
 var is_zooming: bool = false
