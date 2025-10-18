@@ -2,6 +2,11 @@ extends CharacterBody2D
 
 @export var SPEED: int = 300
 @onready var player_camera: Camera2D = $PlayerCamera
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+
+# Animation state
+var last_direction: String = "Down" # Down, Up, Side
+var current_action: String = "idle" # idle, run
 
 func _ready() -> void:
   # Player camera starts disabled - path camera will activate it
@@ -17,6 +22,45 @@ func _process(_delta: float) -> void:
   if Game.can_player_move:
     velocity = vector * SPEED
     move_and_slide()
+
+    # Update direction and action based on movement
+    update_direction(vector)
+    current_action = "run" if vector != Vector2.ZERO else "idle"
+  else:
+    current_action = "idle"
+
+  # Update animation
+  play_animation()
+
+func update_direction(movement_vector: Vector2) -> void:
+  if movement_vector == Vector2.ZERO:
+    return
+
+  # Horizontal movement takes priority
+  if abs(movement_vector.x) > abs(movement_vector.y):
+    last_direction = "Side"
+    animated_sprite.flip_h = movement_vector.x < 0
+  elif movement_vector.y > 0:
+    last_direction = "Down"
+    animated_sprite.flip_h = false
+  else:
+    last_direction = "Up"
+    animated_sprite.flip_h = false
+
+func play_animation() -> void:
+  if not animated_sprite:
+    return
+
+  var animation_name = current_action + last_direction
+
+  # Check if animation exists before playing
+  if animated_sprite.sprite_frames and animated_sprite.sprite_frames.has_animation(animation_name):
+    animated_sprite.play(animation_name)
+
+func set_action(action: String) -> void:
+  """Set the current action"""
+  current_action = action
+  play_animation()
 
 func get_player_camera() -> Camera2D:
   """Returns the player's camera for external access"""

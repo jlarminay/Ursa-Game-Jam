@@ -1,0 +1,55 @@
+[gd_scene load_steps=9 format=3 uid="uid://cu8qhsp6uxmml"]
+
+[ext_resource type="Texture2D" uid="uid://kkt0m3sit76" path="res://Entities/Chicken/Baby Chicken Yellow.png" id="1_fcuh0"]
+[ext_resource type="Script" uid="uid://0ihqoxuv5jl5" path="res://Entities/Chicken/egg_projectile.gd" id="1_ra6pb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ra6pb"]
+radius = 5.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jtqc7"]
+atlas = ExtResource("1_fcuh0")
+region = Rect2(0, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dcqq5"]
+atlas = ExtResource("1_fcuh0")
+region = Rect2(16, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0isem"]
+atlas = ExtResource("1_fcuh0")
+region = Rect2(32, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c382x"]
+atlas = ExtResource("1_fcuh0")
+region = Rect2(48, 96, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8l8ug"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jtqc7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dcqq5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0isem")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c382x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="EggProjectile" type="Area2D"]
+collision_layer = 0
+script = ExtResource("1_ra6pb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ra6pb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -3)
+sprite_frames = SubResource("SpriteFrames_8l8ug")
+frame_progress = 0.4543906

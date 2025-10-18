@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://cucx4nk1ws5u3"]
+
+[ext_resource type="Script" uid="uid://55ja7emoy1iy" path="res://Entities/Chicken/chicken.gd" id="1_81lp8"]
+[ext_resource type="Texture2D" uid="uid://d2peufdj8xy7l" path="res://Entities/Chicken/Chicken White.png" id="1_482nk"]
+[ext_resource type="PackedScene" uid="uid://cu8qhsp6uxmml" path="res://Entities/Chicken/EggProjectile.tscn" id="2_3wpbw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_81lp8"]
+atlas = ExtResource("1_482nk")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3wpbw"]
+atlas = ExtResource("1_482nk")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pbb8q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_81lp8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3wpbw")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Chicken" type="Node2D"]
+script = ExtResource("1_81lp8")
+egg_scene = ExtResource("2_3wpbw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_pbb8q")
+animation = &"idle"
+frame_progress = 0.4606279
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 0, 0)
+width = 3.0
+
+[node name="ThrowTimer" type="Timer" parent="."]

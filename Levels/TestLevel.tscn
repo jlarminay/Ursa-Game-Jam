@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=4 uid="uid://des5cmcp42tbl"]
+[gd_scene load_steps=8 format=4 uid="uid://des5cmcp42tbl"]
 
 [ext_resource type="TileSet" uid="uid://du7kqlfor3c0l" path="res://Sprites/Tilemaps/TileSet.tres" id="1_2yvdw"]
 [ext_resource type="PackedScene" uid="uid://d35ih62q7bbc3" path="res://Entities/Sonic/Sonic.tscn" id="2_voj1p"]
 [ext_resource type="PackedScene" uid="uid://bgoab5theembs" path="res://Entities/Flag/VictoryFlag.tscn" id="3_kxr0u"]
 [ext_resource type="PackedScene" uid="uid://dtjbrby2lwwfa" path="res://Entities/Player/Player.tscn" id="4_kv5fy"]
 [ext_resource type="Script" uid="uid://d08d1wdpukna0" path="res://Scripts/path_camera.gd" id="5_jeepb"]
+[ext_resource type="PackedScene" uid="uid://cucx4nk1ws5u3" path="res://Entities/Chicken/Chicken.tscn" id="6_voj1p"]
 
 [sub_resource type="Curve2D" id="Curve2D_smooth"]
 bake_interval = 4.0
@@ -50,3 +51,6 @@ player = NodePath("../Player")
 position = Vector2(0, 1.9073486e-06)
 scale = Vector2(3, 1.0027986)
 curve = SubResource("Curve2D_smooth")
+
+[node name="Chicken" parent="." instance=ExtResource("6_voj1p")]
+position = Vector2(88, -248)
