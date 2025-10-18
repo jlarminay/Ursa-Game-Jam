@@ -311,7 +311,7 @@ frame_progress = 1.0
 shape = SubResource("RectangleShape2D_kpjcp")
 
 [node name="PlayerCamera" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
+zoom = Vector2(3, 3)
 
 [node name="UIControl" type="Control" parent="."]
 visible = false
