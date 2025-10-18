@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=27 format=3 uid="uid://du7kqlfor3c0l"]
+[gd_resource type="TileSet" load_steps=26 format=3 uid="uid://du7kqlfor3c0l"]
 
 [ext_resource type="Texture2D" uid="uid://cuyrbhpnhs5wk" path="res://Sprites/Tilemaps/Tileset Grass Cliff Tileset Spring.png" id="1_4k0qx"]
 [ext_resource type="Texture2D" uid="uid://bwwphuewk2351" path="res://Sprites/Tilemaps/Tileset Grass Spring.png" id="2_hmwwv"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://bppxrlemml7ks" path="res://Sprites/Tilemaps/Caves.png" id="4_3embi"]
 [ext_resource type="Texture2D" uid="uid://bt1fnb5c7pi8u" path="res://Sprites/Tilemaps/Water Ground animations tiles.png" id="4_11rgv"]
 [ext_resource type="Texture2D" uid="uid://dfxds6iya0pj7" path="res://Sprites/Tilemaps/Props Mine.png" id="5_7k8b4"]
-[ext_resource type="Texture2D" uid="uid://crvqrjki133tg" path="res://Sprites/Tilemaps/tilemap.png" id="5_hmwwv"]
 [ext_resource type="Texture2D" uid="uid://bqqum738cxb06" path="res://Sprites/Tilemaps/Beehive.png" id="6_11rgv"]
 [ext_resource type="Texture2D" uid="uid://cf6hrdxij1sqy" path="res://Sprites/Tilemaps/Fence Wood.png" id="7_x8yls"]
 [ext_resource type="Texture2D" uid="uid://cahb8ew3ncve3" path="res://Sprites/Tilemaps/Big old Tree.png" id="8_k5bmp"]
@@ -4084,7 +4083,6 @@ texture = ExtResource("4_11rgv")
 23:15/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6rv5n"]
-texture = ExtResource("5_hmwwv")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
