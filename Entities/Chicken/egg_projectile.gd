@@ -34,9 +34,6 @@ func _on_body_entered(body: Node) -> void:
   if body.name == "Player":
     Game.game_over = true
     queue_free()
-  elif body.is_in_group("ground") or body.is_in_group("walls"):
-    # Egg hit ground/wall, destroy it
-    queue_free()
 
 func _on_lifetime_expired() -> void:
   queue_free()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://des5cmcp42tbl"]
+[gd_scene load_steps=9 format=4 uid="uid://des5cmcp42tbl"]
 
 [ext_resource type="TileSet" uid="uid://du7kqlfor3c0l" path="res://Sprites/Tilemaps/TileSet.tres" id="1_2yvdw"]
 [ext_resource type="PackedScene" uid="uid://d35ih62q7bbc3" path="res://Entities/Sonic/Sonic.tscn" id="2_voj1p"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dtjbrby2lwwfa" path="res://Entities/Player/Player.tscn" id="4_kv5fy"]
 [ext_resource type="Script" uid="uid://d08d1wdpukna0" path="res://Scripts/path_camera.gd" id="5_jeepb"]
 [ext_resource type="PackedScene" uid="uid://cucx4nk1ws5u3" path="res://Entities/Chicken/Chicken.tscn" id="6_voj1p"]
+[ext_resource type="PackedScene" uid="uid://ckpaj8fo8s2qc" path="res://Entities/Ostrich/Ostrich.tscn" id="7_kxr0u"]
 
 [sub_resource type="Curve2D" id="Curve2D_smooth"]
 bake_interval = 4.0
@@ -54,3 +55,12 @@ curve = SubResource("Curve2D_smooth")
 
 [node name="Chicken" parent="." instance=ExtResource("6_voj1p")]
 position = Vector2(88, -248)
+
+[node name="Ostrich" parent="." node_paths=PackedStringArray("line") instance=ExtResource("7_kxr0u")]
+position = Vector2(344, -136)
+line = NodePath("../OstrichLine")
+
+[node name="OstrichLine" type="Line2D" parent="."]
+points = PackedVector2Array(120, -136, 344, -136, 264, -24, 120, -56, 120, -136)
+width = 1.0
+default_color = Color(1, 1, 0, 1)
