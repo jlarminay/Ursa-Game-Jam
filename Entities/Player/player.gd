@@ -11,9 +11,7 @@ var last_direction: String = "Down" # Down, Up, Side
 var current_action: String = "idle" # idle, run
 
 func _ready() -> void:
-  # Player camera starts disabled - path camera will activate it
-  if player_camera:
-    player_camera.enabled = false
+  pass
 
 func _process(_delta: float) -> void:
   if Input.is_action_pressed("Drop") && not held_item == "None":

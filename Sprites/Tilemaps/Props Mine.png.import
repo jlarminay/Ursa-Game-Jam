@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://crvqrjki133tg"
-path="res://.godot/imported/tilemap.png-00c8ba742e468e1471a45fa810231912.ctex"
+uid="uid://dfxds6iya0pj7"
+path="res://.godot/imported/Props Mine.png-5f0175ab1001be40a8b39bbf6bce298a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Global/tilemap.png"
-dest_files=["res://.godot/imported/tilemap.png-00c8ba742e468e1471a45fa810231912.ctex"]
+source_file="res://Sprites/Tilemaps/Props Mine.png"
+dest_files=["res://.godot/imported/Props Mine.png-5f0175ab1001be40a8b39bbf6bce298a.ctex"]
 
 [params]
 

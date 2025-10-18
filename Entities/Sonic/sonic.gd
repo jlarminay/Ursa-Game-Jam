@@ -49,7 +49,8 @@ func _process(delta: float) -> void:
 
   if index >= line.get_point_count():
     index = line.get_point_count() - 1
-    Game.game_over = true
+    # Game.game_over = true
+    queue_free()
 
 func update_direction(vel: Vector2) -> void:
   # Horizontal movement takes priority

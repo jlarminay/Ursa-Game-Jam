@@ -2,6 +2,7 @@ extends Area2D
 
 @export var line: Line2D
 @export var speed: float = 100.0
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 var player: CharacterBody2D
 var current_point_index: int = 1
@@ -27,6 +28,10 @@ func patrol_along_line(delta: float) -> void:
   # Get target point
   var target_position = line.get_point_position(current_point_index)
 
+  # Calculate movement direction for animation
+  var movement_direction = (target_position - global_position).normalized()
+  update_animation(movement_direction)
+
   # Move towards target
   global_position = global_position.move_toward(target_position, speed * delta)
 
@@ -38,6 +43,23 @@ func patrol_along_line(delta: float) -> void:
     # Loop back to beginning when reaching the end
     if current_point_index >= line.get_point_count():
       current_point_index = 0
+
+func update_animation(direction: Vector2) -> void:
+  if not animated_sprite:
+    return
+
+  # Determine which animation to play based on movement direction
+  # Horizontal movement takes priority over vertical
+  if abs(direction.x) > abs(direction.y):
+    animated_sprite.play("runSide")
+    # Flip sprite based on direction (fixed)
+    animated_sprite.flip_h = direction.x > 0 # Flip when moving right
+  elif direction.y > 0:
+    animated_sprite.play("runDown")
+    animated_sprite.flip_h = false
+  else:
+    animated_sprite.play("runUp")
+    animated_sprite.flip_h = false
 
 func _on_body_entered(body: Node) -> void:
   if body.name == "Player":
