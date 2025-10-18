@@ -13,14 +13,14 @@ func _process(_delta: float) -> void:
 func start_level():
 	game_over = false
 	level_success = false
-	can_player_move = false
-	can_sonic_move = false
-	# start countdown
-	AudioController.play_starting_sound()
-	# wait for 2 seconds
-	await get_tree().create_timer(3.0).timeout
 	can_player_move = true
 	can_sonic_move = true
+	# # start countdown
+	# AudioController.play_starting_sound()
+	# # wait for 2 seconds
+	# await get_tree().create_timer(3.0).timeout
+	# can_player_move = true
+	# can_sonic_move = true
 
 func restart():
 	game_over = false

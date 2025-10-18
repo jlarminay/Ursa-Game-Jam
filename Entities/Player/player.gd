@@ -3,6 +3,8 @@ extends CharacterBody2D
 @export var SPEED: int = 300
 @onready var player_camera: Camera2D = $PlayerCamera
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+var held_item: String = "None"
+var item_scene = preload("res://Entities/Item/Item.tscn")
 
 # Animation state
 var last_direction: String = "Down" # Down, Up, Side
@@ -14,6 +16,14 @@ func _ready() -> void:
     player_camera.enabled = false
 
 func _process(_delta: float) -> void:
+  if Input.is_action_pressed("Drop") && not held_item == "None":
+    var item_instance = item_scene.instantiate()
+    get_tree().current_scene.add_child(item_instance)
+    item_instance.item = held_item
+    item_instance.global_position = global_position
+    item_instance.recently_dropped = true
+    held_item = "None"
+
   var vector = Vector2(
     Input.get_action_strength("Right") - Input.get_action_strength("Left"),
     Input.get_action_strength("Down") - Input.get_action_strength("Up")
