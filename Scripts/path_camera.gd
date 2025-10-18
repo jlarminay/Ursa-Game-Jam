@@ -18,6 +18,7 @@ signal path_complete
 
 func _ready() -> void:
   # Disable player movement during cinematic
+  AudioController.play_intro_music()
   Game.can_player_move = false
   Game.can_sonic_move = false
 
