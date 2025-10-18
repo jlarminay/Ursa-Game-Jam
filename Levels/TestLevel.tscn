@@ -1,8 +1,6 @@
-[gd_scene load_steps=11 format=4 uid="uid://des5cmcp42tbl"]
+[gd_scene load_steps=9 format=4 uid="uid://des5cmcp42tbl"]
 
 [ext_resource type="TileSet" uid="uid://du7kqlfor3c0l" path="res://Sprites/Tilemaps/TileSet.tres" id="1_2yvdw"]
-[ext_resource type="PackedScene" uid="uid://d35ih62q7bbc3" path="res://Entities/Sonic/Sonic.tscn" id="2_voj1p"]
-[ext_resource type="PackedScene" uid="uid://bgoab5theembs" path="res://Entities/Flag/VictoryFlag.tscn" id="3_kxr0u"]
 [ext_resource type="PackedScene" uid="uid://dtjbrby2lwwfa" path="res://Entities/Player/Player.tscn" id="4_kv5fy"]
 [ext_resource type="Script" uid="uid://d08d1wdpukna0" path="res://Scripts/path_camera.gd" id="5_jeepb"]
 [ext_resource type="PackedScene" uid="uid://cucx4nk1ws5u3" path="res://Entities/Chicken/Chicken.tscn" id="6_voj1p"]
@@ -26,20 +24,6 @@ tile_set = ExtResource("1_2yvdw")
 [node name="Walls" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAD9//r/AQALABMAAAD9//n/AQALABIAAAD9//j/AQALABIAAAD8//r/AQAJABMAAAD7//r/AQAJABMAAAD6//r/AQAJABMAAAD5//r/AQAJABMAAAD8//n/AQAJABIAAAD7//n/AQAJABIAAAD6//n/AQAJABIAAAD5//n/AQAJABIAAAD8//j/AAAJAAIAAAD7//j/AAAJAAIAAAD6//j/AAAJAAIAAAD5//j/AAAJAAIAAAD+//r/AQAIAAkAAAD+//n/AQAIAAkAAAD+//j/AQAIAAkAAAD+//f/AQAIAAkAAAD+//b/AQAIAAkAAAD///r/AQALAAoAAAD///n/AQALAAoAAAD///j/AQALAAoAAAAAAPf/AQALAAoAAAAAAPb/AQALAAoAAAD///b/AQALAAoAAAD///f/AQALAAoAAAA=")
 tile_set = ExtResource("1_2yvdw")
-
-[node name="SonicRoute" type="Line2D" parent="."]
-points = PackedVector2Array(-80, -16, 16, -16, 16, -336, -16, -368, -336, -368, -336, -560, -304, -592, 48, -592, 48, -720, 16, -752, -272, -752, -272, -880, -240, -912, 16, -912, 16, -1072)
-width = 3.0
-default_color = Color(1, 0, 0, 1)
-
-[node name="Sonic" parent="." node_paths=PackedStringArray("line") instance=ExtResource("2_voj1p")]
-position = Vector2(-960, -480)
-line = NodePath("../SonicRoute")
-SPEED = 350
-
-[node name="VictoryFlag" parent="." node_paths=PackedStringArray("line") instance=ExtResource("3_kxr0u")]
-position = Vector2(-992, -480)
-line = NodePath("../SonicRoute")
 
 [node name="Player" parent="." instance=ExtResource("4_kv5fy")]
 position = Vector2(176, -16)
