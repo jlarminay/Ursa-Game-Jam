@@ -1,0 +1,76 @@
+[gd_scene load_steps=11 format=3 uid="uid://de2wwk1s42gmy"]
+
+[ext_resource type="Script" uid="uid://c8u6gk131bjgs" path="res://Entities/Bird/bird.gd" id="1_cgxfe"]
+[ext_resource type="Texture2D" uid="uid://doi4j52dmwnh1" path="res://Entities/Bird/Crow.png" id="1_ogwvd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jwd60"]
+atlas = ExtResource("1_ogwvd")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t7cnf"]
+atlas = ExtResource("1_ogwvd")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eo7e2"]
+atlas = ExtResource("1_ogwvd")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ooswc"]
+atlas = ExtResource("1_ogwvd")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ib2t"]
+atlas = ExtResource("1_ogwvd")
+region = Rect2(128, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cgxfe"]
+atlas = ExtResource("1_ogwvd")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3yfef"]
+atlas = ExtResource("1_ogwvd")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1mrhc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jwd60")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t7cnf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eo7e2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ooswc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ib2t")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cgxfe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3yfef")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Bird" type="Node2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_cgxfe")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_1mrhc")
+animation = &"idle"
+frame_progress = 0.7858256
