@@ -18,7 +18,7 @@ func start_level():
 	# start countdown
 	AudioController.play_starting_sound()
 	# wait for 2 seconds
-	await get_tree().create_timer(3.3).timeout
+	await get_tree().create_timer(3.0).timeout
 	can_player_move = true
 	can_sonic_move = true
 
