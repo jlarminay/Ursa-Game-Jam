@@ -1,0 +1,80 @@
+[gd_scene load_steps=11 format=3 uid="uid://ckpaj8fo8s2qc"]
+
+[ext_resource type="Texture2D" uid="uid://5wflplpqhv5t" path="res://Entities/Ostrich/Ostrich Black.png" id="1_qx2sx"]
+[ext_resource type="Script" uid="uid://bdl20wsuy2tqt" path="res://Entities/Ostrich/ostrich.gd" id="1_u2vdd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u2vdd"]
+size = Vector2(14, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s0a0t"]
+atlas = ExtResource("1_qx2sx")
+region = Rect2(0, 33, 32, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jdh10"]
+atlas = ExtResource("1_qx2sx")
+region = Rect2(32, 33, 32, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h2unk"]
+atlas = ExtResource("1_qx2sx")
+region = Rect2(0, 0, 32, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ucjtv"]
+atlas = ExtResource("1_qx2sx")
+region = Rect2(32, 0, 32, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ortk7"]
+atlas = ExtResource("1_qx2sx")
+region = Rect2(0, 66, 32, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tums2"]
+atlas = ExtResource("1_qx2sx")
+region = Rect2(32, 66, 32, 33)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wdavu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s0a0t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jdh10")
+}],
+"loop": true,
+"name": &"runDown",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h2unk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ucjtv")
+}],
+"loop": true,
+"name": &"runSide",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ortk7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tums2")
+}],
+"loop": true,
+"name": &"runUp",
+"speed": 5.0
+}]
+
+[node name="Ostrich" type="Area2D"]
+script = ExtResource("1_u2vdd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, 1)
+shape = SubResource("RectangleShape2D_u2vdd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(4, -4)
+sprite_frames = SubResource("SpriteFrames_wdavu")
+animation = &"runDown"
+frame_progress = 0.5022424
