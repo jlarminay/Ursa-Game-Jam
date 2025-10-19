@@ -1,3 +1,203 @@
-[gd_scene format=3 uid="uid://b8pchfbv8ax8f"]
+[gd_scene load_steps=4 format=3 uid="uid://cbfqfsic8kam7"]
+
+[ext_resource type="Theme" uid="uid://b3bd3l5bcox01" path="res://UI/credits-theme.tres" id="1_ls5v6"]
+[ext_resource type="Script" uid="uid://cfbry75tencam" path="res://Levels/credits.gd" id="1_pqt5f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pqt5f"]
+size = Vector2(376, 20)
 
 [node name="Credits" type="Node2D"]
+script = ExtResource("1_pqt5f")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -224.0
+offset_top = -160.0
+offset_right = 224.0
+offset_bottom = 160.0
+color = Color(0.080783375, 0.08078333, 0.080783345, 1)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="PlayerCamera" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-4, 0)
+shape = SubResource("RectangleShape2D_pqt5f")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Label" type="Label" parent="Node2D"]
+offset_left = -64.0
+offset_top = -24.0
+offset_right = 68.0
+offset_bottom = 16.0
+theme = ExtResource("1_ls5v6")
+theme_override_font_sizes/font_size = 40
+text = "Credits"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Music" type="Label" parent="Node2D"]
+offset_left = -61.0
+offset_top = 184.0
+offset_right = 62.0
+offset_bottom = 216.0
+theme = ExtResource("1_ls5v6")
+theme_override_font_sizes/font_size = 32
+text = "Music"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Music1" type="Label" parent="Node2D"]
+offset_left = -71.0
+offset_top = 224.0
+offset_right = 69.0
+offset_bottom = 247.0
+theme = ExtResource("1_ls5v6")
+text = "Skeddles Music"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Music2" type="Label" parent="Node2D"]
+offset_left = -71.0
+offset_top = 251.0
+offset_right = 69.0
+offset_bottom = 274.0
+theme = ExtResource("1_ls5v6")
+text = "Keep Zero View"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Music3" type="Label" parent="Node2D"]
+offset_left = -116.0
+offset_top = 274.0
+offset_right = 116.0
+offset_bottom = 297.0
+theme = ExtResource("1_ls5v6")
+text = "Marcelo Fernandez Music"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Music4" type="Label" parent="Node2D"]
+offset_left = -120.0
+offset_top = 297.0
+offset_right = 122.0
+offset_bottom = 320.0
+theme = ExtResource("1_ls5v6")
+text = "Darren Curtis Music"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Music5" type="Label" parent="Node2D"]
+offset_left = -120.0
+offset_top = 320.0
+offset_right = 122.0
+offset_bottom = 343.0
+theme = ExtResource("1_ls5v6")
+text = "Marcelo Fernandez Music"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Music6" type="Label" parent="Node2D"]
+offset_left = -120.0
+offset_top = 343.0
+offset_right = 122.0
+offset_bottom = 366.0
+theme = ExtResource("1_ls5v6")
+text = "Rhys Owen Music"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Music7" type="Label" parent="Node2D"]
+offset_left = -120.0
+offset_top = 366.0
+offset_right = 122.0
+offset_bottom = 389.0
+theme = ExtResource("1_ls5v6")
+text = "Cerberus Alpha 3000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Art" type="Label" parent="Node2D"]
+offset_left = -61.0
+offset_top = 464.0
+offset_right = 62.0
+offset_bottom = 496.0
+theme = ExtResource("1_ls5v6")
+theme_override_font_sizes/font_size = 32
+text = "Art"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Art1" type="Label" parent="Node2D"]
+offset_left = -69.0
+offset_top = 496.0
+offset_right = 71.0
+offset_bottom = 519.0
+theme = ExtResource("1_ls5v6")
+text = "Emanuelle Dev"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Art2" type="Label" parent="Node2D"]
+offset_left = -69.0
+offset_top = 519.0
+offset_right = 71.0
+offset_bottom = 542.0
+theme = ExtResource("1_ls5v6")
+text = "Josh"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Made by" type="Label" parent="Node2D"]
+offset_left = -69.0
+offset_top = 608.0
+offset_right = 71.0
+offset_bottom = 640.0
+theme = ExtResource("1_ls5v6")
+theme_override_font_sizes/font_size = 32
+text = "Made by"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Made by2" type="Label" parent="Node2D"]
+offset_left = -69.0
+offset_top = 640.0
+offset_right = 71.0
+offset_bottom = 663.0
+theme = ExtResource("1_ls5v6")
+text = "Nigel"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Made by3" type="Label" parent="Node2D"]
+offset_left = -69.0
+offset_top = 663.0
+offset_right = 71.0
+offset_bottom = 686.0
+theme = ExtResource("1_ls5v6")
+text = "Brendan"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Made by4" type="Label" parent="Node2D"]
+offset_left = -69.0
+offset_top = 686.0
+offset_right = 71.0
+offset_bottom = 709.0
+theme = ExtResource("1_ls5v6")
+text = "Josh"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Area2D2" type="Area2D" parent="Node2D"]
+position = Vector2(-4, 872)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D2"]
+position = Vector2(-4, 0)
+shape = SubResource("RectangleShape2D_pqt5f")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
