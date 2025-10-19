@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=4 uid="uid://des5cmcp42tbl"]
+[gd_scene load_steps=8 format=4 uid="uid://des5cmcp42tbl"]
 
 [ext_resource type="TileSet" uid="uid://du7kqlfor3c0l" path="res://Sprites/Tilemaps/TileSet.tres" id="1_2yvdw"]
 [ext_resource type="PackedScene" uid="uid://dtjbrby2lwwfa" path="res://Entities/Player/Player.tscn" id="4_kv5fy"]
 [ext_resource type="PackedScene" uid="uid://cucx4nk1ws5u3" path="res://Entities/Chicken/Chicken.tscn" id="6_voj1p"]
+[ext_resource type="PackedScene" uid="uid://bnoklckdnnx6n" path="res://Entities/AnimalObstacle/AnimalObstacle.tscn" id="7_kv5fy"]
 [ext_resource type="PackedScene" uid="uid://ckpaj8fo8s2qc" path="res://Entities/Ostrich/Ostrich.tscn" id="7_kxr0u"]
 [ext_resource type="PackedScene" uid="uid://de2wwk1s42gmy" path="res://Entities/Bird/Bird.tscn" id="8_kv5fy"]
 [ext_resource type="PackedScene" uid="uid://tk14juuejqmb" path="res://Entities/Item/Item.tscn" id="9_jeepb"]
@@ -15,7 +16,6 @@ tile_set = ExtResource("1_2yvdw")
 
 [node name="Player" parent="." instance=ExtResource("4_kv5fy")]
 position = Vector2(176, -16)
-SPEED = 240
 
 [node name="Chicken" parent="." instance=ExtResource("6_voj1p")]
 position = Vector2(-272, 112)
@@ -71,3 +71,63 @@ position = Vector2(272, 80)
 
 [node name="Bird4" parent="birds" instance=ExtResource("8_kv5fy")]
 position = Vector2(272, 96)
+
+[node name="Bear" parent="." instance=ExtResource("7_kv5fy")]
+position = Vector2(150, 120)
+animal = "Bear"
+direction = "Up"
+
+[node name="Bear2" parent="." instance=ExtResource("7_kv5fy")]
+position = Vector2(150, 144)
+animal = "Bear"
+direction = "Down"
+
+[node name="Bear3" parent="." instance=ExtResource("7_kv5fy")]
+position = Vector2(150, 168)
+animal = "Bear"
+direction = "Left"
+
+[node name="Bear4" parent="." instance=ExtResource("7_kv5fy")]
+position = Vector2(150, 192)
+animal = "Bear"
+direction = "Right"
+
+[node name="Pig" parent="." instance=ExtResource("7_kv5fy")]
+position = Vector2(184, 120)
+animal = "Pig"
+direction = "Up"
+
+[node name="Pig2" parent="." instance=ExtResource("7_kv5fy")]
+position = Vector2(184, 144)
+animal = "Pig"
+direction = "Down"
+
+[node name="Pig3" parent="." instance=ExtResource("7_kv5fy")]
+position = Vector2(184, 168)
+animal = "Pig"
+direction = "Left"
+
+[node name="Pig4" parent="." instance=ExtResource("7_kv5fy")]
+position = Vector2(184, 192)
+animal = "Pig"
+direction = "Right"
+
+[node name="Rabbit" parent="." instance=ExtResource("7_kv5fy")]
+position = Vector2(216, 120)
+animal = "Rabbit"
+direction = "Up"
+
+[node name="Rabbit2" parent="." instance=ExtResource("7_kv5fy")]
+position = Vector2(216, 144)
+animal = "Rabbit"
+direction = "Down"
+
+[node name="Rabbit3" parent="." instance=ExtResource("7_kv5fy")]
+position = Vector2(216, 168)
+animal = "Rabbit"
+direction = "Left"
+
+[node name="Rabbit4" parent="." instance=ExtResource("7_kv5fy")]
+position = Vector2(216, 192)
+animal = "Rabbit"
+direction = "Right"

@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal item_dropped(item_instance: Node2D)
+
 @onready var player_camera: Camera2D = $PlayerCamera
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var text_box: Control = $TextBox
@@ -33,6 +35,7 @@ func _process(_delta: float) -> void:
     item_instance.recently_dropped = true
     get_tree().current_scene.add_child(item_instance)
     held_item = "None"
+    item_dropped.emit(item_instance)
 
   var vector = Vector2(
     Input.get_action_strength("Right") - Input.get_action_strength("Left"),
