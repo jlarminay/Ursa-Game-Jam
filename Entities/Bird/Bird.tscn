@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://de2wwk1s42gmy"]
+[gd_scene load_steps=12 format=3 uid="uid://de2wwk1s42gmy"]
 
 [ext_resource type="Script" uid="uid://c8u6gk131bjgs" path="res://Entities/Bird/bird.gd" id="1_cgxfe"]
 [ext_resource type="Texture2D" uid="uid://doi4j52dmwnh1" path="res://Entities/Bird/Crow.png" id="1_ogwvd"]
+[ext_resource type="AudioStream" uid="uid://6jd0p3xpo6hf" path="res://Entities/Bird/fly-away.mp3" id="3_3yfef"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jwd60"]
 atlas = ExtResource("1_ogwvd")
@@ -74,3 +75,6 @@ position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_1mrhc")
 animation = &"idle"
 frame_progress = 0.7858256
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_3yfef")

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bl3ad7walavko"
+path="res://.godot/imported/RPG 16Bit Battle Music What Are These Monsters! - Darren Curtis Music (youtube).mp3-89d2e31d2d6423220c4b2b461a11c7e1.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Music/RPG 16Bit Battle Music What Are These Monsters! - Darren Curtis Music (youtube).mp3"
+dest_files=["res://.godot/imported/RPG 16Bit Battle Music What Are These Monsters! - Darren Curtis Music (youtube).mp3-89d2e31d2d6423220c4b2b461a11c7e1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

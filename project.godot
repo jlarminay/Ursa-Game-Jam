@@ -18,8 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 Game="*res://Global/game.gd"
-AudioController="*res://Global/AudioController/AudioController.tscn"
 TextBox="*res://Global/text_box.gd"
+AudioController="*res://Global/audio_controller.gd"
 
 [display]
 

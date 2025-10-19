@@ -5,6 +5,13 @@ var game_over: bool = false
 var level_success: bool = false
 var can_sonic_move: bool = true
 
+# Transition system
+var transition_overlay: ColorRect
+var fade_duration: float = 0.5
+
+func _ready() -> void:
+  pass
+
 func _process(_delta: float) -> void:
   if level_success or game_over:
     can_player_move = false
@@ -24,7 +31,7 @@ func next_level():
   elif current_scene == "Level1":
     get_tree().change_scene_to_file("res://Levels/Level2.tscn")
   elif current_scene == "Level2":
-    get_tree().change_scene_to_file("res://Levels/Level23.tscn")
+    get_tree().change_scene_to_file("res://Levels/Level3.tscn")
   elif current_scene == "Level3":
     get_tree().change_scene_to_file("res://Levels/LevelFinal.tscn")
 

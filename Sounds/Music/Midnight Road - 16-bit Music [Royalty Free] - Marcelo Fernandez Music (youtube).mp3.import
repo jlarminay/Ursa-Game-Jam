@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://vs4k4qe0y7fn"
+path="res://.godot/imported/Midnight Road - 16-bit Music [Royalty Free] - Marcelo Fernandez Music (youtube).mp3-9b128ef712f127d1c1ecbc5187ddf2bb.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Music/Midnight Road - 16-bit Music [Royalty Free] - Marcelo Fernandez Music (youtube).mp3"
+dest_files=["res://.godot/imported/Midnight Road - 16-bit Music [Royalty Free] - Marcelo Fernandez Music (youtube).mp3-9b128ef712f127d1c1ecbc5187ddf2bb.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cpc1b041al754"
+path="res://.godot/imported/A New Hero Is Rising - 16-bit Music [Royalty Free] - Marcelo Fernandez Music (youtube).mp3-81d333c46dbf90c4ab5f044276fb3519.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Music/A New Hero Is Rising - 16-bit Music [Royalty Free] - Marcelo Fernandez Music (youtube).mp3"
+dest_files=["res://.godot/imported/A New Hero Is Rising - 16-bit Music [Royalty Free] - Marcelo Fernandez Music (youtube).mp3-81d333c46dbf90c4ab5f044276fb3519.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
