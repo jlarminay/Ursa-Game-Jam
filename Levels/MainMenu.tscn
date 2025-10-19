@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://d3ogbl5ossqdh"]
+[gd_scene load_steps=9 format=4 uid="uid://d3ogbl5ossqdh"]
 
 [ext_resource type="Script" uid="uid://cqu7cp2yw22rf" path="res://Levels/main_menu.gd" id="1_yw2i3"]
 [ext_resource type="FontFile" uid="uid://beu7bh5g17i6u" path="res://UI/Hello Farmer Font by Keithzo.ttf" id="2_2k6u6"]
@@ -6,6 +6,7 @@
 [ext_resource type="Theme" uid="uid://blam67opkd3km" path="res://UI/theme.tres" id="3_65ows"]
 [ext_resource type="TileSet" uid="uid://du7kqlfor3c0l" path="res://Sprites/Tilemaps/TileSet.tres" id="4_65ows"]
 [ext_resource type="PackedScene" uid="uid://d354i6445ugnl" path="res://Entities/MainMenuWalker/MainMenuWalker.tscn" id="5_2ld8x"]
+[ext_resource type="Texture2D" uid="uid://lujid7wktgiq" path="res://Entities/Player/crown.png" id="7_gerv3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_2ld8x"]
 font = ExtResource("2_2k6u6")
@@ -101,7 +102,7 @@ layout_mode = 0
 offset_top = 48.0
 offset_right = 416.0
 offset_bottom = 118.0
-text = "Runnin' Men"
+text = "Short(cut) King"
 label_settings = SubResource("LabelSettings_2ld8x")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -135,6 +136,12 @@ offset_bottom = 288.0
 theme = ExtResource("3_65ows")
 theme_override_font_sizes/font_size = 10
 text = "Exit"
+
+[node name="Crown" type="Sprite2D" parent="."]
+position = Vector2(44.000004, -91)
+rotation = -0.5235988
+scale = Vector2(1.7426304, 1.7426305)
+texture = ExtResource("7_gerv3")
 
 [connection signal="pressed" from="Control/StartGame" to="." method="_on_start_game_pressed"]
 [connection signal="pressed" from="Control/Credits" to="." method="_on_credits_pressed"]

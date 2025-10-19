@@ -4,6 +4,7 @@ extends Node2D
 
 func _ready() -> void:
   music_player.play()
+  Game.game_over = false
 
 func _on_exit_pressed() -> void:
   Game.exit()
