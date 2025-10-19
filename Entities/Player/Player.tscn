@@ -1,11 +1,30 @@
-[gd_scene load_steps=46 format=3 uid="uid://dtjbrby2lwwfa"]
+[gd_scene load_steps=53 format=3 uid="uid://dtjbrby2lwwfa"]
 
 [ext_resource type="Script" uid="uid://bptg81vposyrs" path="res://Entities/Player/player.gd" id="1_kpjcp"]
+[ext_resource type="Texture2D" uid="uid://c70h5atnw3u2f" path="res://Entities/Player/Dead.png" id="2_hj1c0"]
 [ext_resource type="Texture2D" uid="uid://bwx5hjjdrjj88" path="res://Entities/Player/Idle.png" id="2_vweq0"]
 [ext_resource type="Texture2D" uid="uid://ds3kay56rc0ej" path="res://Entities/Player/Run.png" id="3_1des2"]
 [ext_resource type="Script" uid="uid://yrl0ghhvkkdg" path="res://Entities/UI/ui_control.gd" id="3_e80uo"]
 [ext_resource type="Theme" uid="uid://blam67opkd3km" path="res://UI/theme.tres" id="5_t38ms"]
 [ext_resource type="FontFile" uid="uid://dkfpclcycdhur" path="res://UI/smallest_pixel-7.ttf" id="6_hj1c0"]
+[ext_resource type="Texture2D" uid="uid://cer15rd1a7kfl" path="res://UI/0.2.png" id="8_761t5"]
+[ext_resource type="PackedScene" uid="uid://tk14juuejqmb" path="res://Entities/Item/Item.tscn" id="9_761t5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f2hyx"]
+atlas = ExtResource("2_hj1c0")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dhm1p"]
+atlas = ExtResource("2_hj1c0")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nfyot"]
+atlas = ExtResource("2_hj1c0")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a3245"]
+atlas = ExtResource("2_hj1c0")
+region = Rect2(96, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1des2"]
 atlas = ExtResource("2_vweq0")
@@ -155,6 +174,23 @@ region = Rect2(224, 32, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_f2hyx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dhm1p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nfyot")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a3245")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_1des2")
 }, {
 "duration": 1.0,
@@ -292,8 +328,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kpjcp"]
-size = Vector2(16, 16)
+[sub_resource type="CircleShape2D" id="CircleShape2D_t38ms"]
+radius = 8.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_kpjcp"]
 font_size = 241
@@ -305,12 +341,12 @@ script = ExtResource("1_kpjcp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_samso")
-animation = &"idleDown"
-frame = 3
-frame_progress = 1.0
+animation = &"dead"
+frame = 1
+frame_progress = 0.2690771
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_kpjcp")
+shape = SubResource("CircleShape2D_t38ms")
 
 [node name="PlayerCamera" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
@@ -418,7 +454,7 @@ offset_bottom = 40.0
 [node name="Dialogue" type="Label" parent="TextBox"]
 layout_mode = 0
 offset_left = -192.0
-offset_top = 64.0
+offset_top = 72.0
 offset_right = 192.0
 offset_bottom = 139.0
 theme = ExtResource("5_t38ms")
@@ -437,6 +473,23 @@ theme_override_fonts/font = ExtResource("6_hj1c0")
 theme_override_font_sizes/font_size = 8
 text = "Press space to continue..."
 
+[node name="HUD" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Sprite2D2" type="Sprite2D" parent="HUD"]
+position = Vector2(-176, -128)
+scale = Vector2(0.5, 0.49999997)
+texture = ExtResource("8_761t5")
+region_enabled = true
+region_rect = Rect2(0, 0, 48, 48)
+
+[node name="Item" parent="HUD" instance=ExtResource("9_761t5")]
+position = Vector2(-176, -128)
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="pressed" from="UIControl/GameOverScreen/Restart" to="UIControl" method="_on_restart_pressed"]
 [connection signal="pressed" from="UIControl/GameOverScreen/Exit" to="UIControl" method="_on_exit_pressed"]
 [connection signal="pressed" from="UIControl/SuccessScreen/NextLevel" to="UIControl" method="_on_next_level_pressed"]

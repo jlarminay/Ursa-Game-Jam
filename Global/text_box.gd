@@ -40,8 +40,9 @@ func show_text(lines: Array[String]) -> Signal:
 
 func show_next_line() -> void:
   if current_line_index < current_lines.size():
-    # Show current line
-    text_label.text = current_lines[current_line_index]
+    # Show current line with newline support
+    var line_text = current_lines[current_line_index]
+    text_label.text = line_text.replace("\\n", "\n")
     waiting_for_input = true
   else:
     # All lines shown, end the dialogue

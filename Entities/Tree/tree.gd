@@ -11,15 +11,24 @@ extends StaticBody2D
 @onready var sprite9: Sprite2D = $Sprite2D9
 @onready var sprite10: Sprite2D = $Sprite2D10
 
+@onready var spriteBees: Sprite2D = $Sprite2DBees
+@export var custom_bees: bool = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
   # Create array of all sprites
   var sprites = [sprite1, sprite2, sprite3, sprite4, sprite5, sprite6, sprite7, sprite8, sprite9, sprite10]
 
   # Disable all sprites first
+  spriteBees.visible = false
   for sprite in sprites:
     sprite.visible = false
 
-  # Pick a random sprite to enable (0-3)
-  var random_sprite_index = randi() % sprites.size()
-  sprites[random_sprite_index].visible = true
+  if custom_bees:
+    spriteBees.visible = true
+    return
+  else:
+    # Pick a random sprite to enable (0-3)
+    var random_sprite_index = randi() % sprites.size()
+    sprites[random_sprite_index].visible = true
+    return

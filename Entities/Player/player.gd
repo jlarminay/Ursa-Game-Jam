@@ -1,11 +1,13 @@
 extends CharacterBody2D
 
-@export var SPEED: int = 300
 @onready var player_camera: Camera2D = $PlayerCamera
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var text_box: Control = $TextBox
+@onready var hud_item: Area2D = $HUD/Item
 var held_item: String = "None"
 var item_scene = preload("res://Entities/Item/Item.tscn")
+var speed: int = 150
+var dead_animation_played: bool = false
 
 # Animation state
 var last_direction: String = "Down" # Down, Up, Side
@@ -13,14 +15,23 @@ var current_action: String = "idle" # idle, run
 
 func _ready() -> void:
   text_box.visible = false
+  hud_item.visible = false
 
 func _process(_delta: float) -> void:
+  # Check for game over state
+  if Game.game_over and not dead_animation_played:
+    dead_animation_played = true
+    last_direction = ""
+    current_action = "dead"
+    play_animation()
+    return
+
   if Input.is_action_pressed("Drop") && not held_item == "None":
     var item_instance = item_scene.instantiate()
-    get_tree().current_scene.add_child(item_instance)
     item_instance.item = held_item
     item_instance.global_position = global_position
     item_instance.recently_dropped = true
+    get_tree().current_scene.add_child(item_instance)
     held_item = "None"
 
   var vector = Vector2(
@@ -29,7 +40,7 @@ func _process(_delta: float) -> void:
   ).normalized()
 
   if Game.can_player_move:
-    velocity = vector * SPEED
+    velocity = vector * speed
     move_and_slide()
 
     # Update direction and action based on movement
@@ -40,6 +51,7 @@ func _process(_delta: float) -> void:
 
   # Update animation
   play_animation()
+  update_held_item_hud()
 
 func update_direction(movement_vector: Vector2) -> void:
   if movement_vector == Vector2.ZERO:
@@ -62,6 +74,10 @@ func play_animation() -> void:
 
   var animation_name = current_action + last_direction
 
+  # Special case for dead animation - don't append direction
+  if current_action == "dead":
+    animation_name = "dead"
+
   # Check if animation exists before playing
   if animated_sprite.sprite_frames and animated_sprite.sprite_frames.has_animation(animation_name):
     animated_sprite.play(animation_name)
@@ -71,6 +87,19 @@ func set_action(action: String) -> void:
   current_action = action
   play_animation()
 
-func get_player_camera() -> Camera2D:
-  """Returns the player's camera for external access"""
-  return player_camera
+func _on_animated_sprite_2d_animation_finished() -> void:
+  print("Animation finished: ", current_action)
+  if current_action == "dead":
+    # Stop the animation by setting speed to 0
+    animated_sprite.speed_scale = 0
+
+func update_held_item_hud() -> void:
+  """Update the HUD to show the currently held item"""
+  if not hud_item:
+    return
+
+  if held_item != "None":
+    hud_item.visible = true
+    hud_item.item = held_item
+  else:
+    hud_item.visible = false

@@ -1,9 +1,9 @@
 extends Node2D
 
 @export var line: Line2D
-@export var SPEED: int = 250
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
+var speed: int = 200
 var index: int = 1
 
 # Animation state
@@ -29,7 +29,7 @@ func _process(delta: float) -> void:
   var old_position = global_position
 
   # Move towards target
-  global_position = global_position.move_toward(target, SPEED * delta)
+  global_position = global_position.move_toward(target, speed * delta)
 
   # Calculate actual velocity
   velocity = (global_position - old_position) / delta

@@ -40,7 +40,6 @@ func start_tree_cutscene() -> void:
 
   # display some text
   await TextBox.show_text([
-    "This is a test text. I want to say a lot and see what happens. will it wrap around properly? or will it just cut off?",
     "Ha Ha! Good luck following me now!",
     "This is the fastest route and now your can't follow me!",
     "Thank god there is no shortcut through those trees over there",

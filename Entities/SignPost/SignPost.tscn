@@ -1,0 +1,78 @@
+[gd_scene load_steps=12 format=3 uid="uid://bc03gtg12ug7t"]
+
+[ext_resource type="Texture2D" uid="uid://8g1gposs4qar" path="res://UI/Exterior.png" id="1_0weym"]
+[ext_resource type="Script" uid="uid://eb1qo3pi8rv0" path="res://Entities/SignPost/sign_post.gd" id="1_jkyt8"]
+[ext_resource type="Texture2D" uid="uid://xld1dgyyjxbp" path="res://UI/dialogue box.png" id="3_7h8ar"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jkyt8"]
+size = Vector2(48, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oovhk"]
+atlas = ExtResource("3_7h8ar")
+region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e6oxj"]
+atlas = ExtResource("3_7h8ar")
+region = Rect2(64, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mnqh4"]
+atlas = ExtResource("3_7h8ar")
+region = Rect2(80, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8kani"]
+atlas = ExtResource("3_7h8ar")
+region = Rect2(96, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hs106"]
+atlas = ExtResource("3_7h8ar")
+region = Rect2(80, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_76dle"]
+atlas = ExtResource("3_7h8ar")
+region = Rect2(64, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_elbkp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oovhk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e6oxj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mnqh4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8kani")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hs106")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_76dle")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="SignPost" type="Area2D"]
+scale = Vector2(0.8, 0.8)
+script = ExtResource("1_jkyt8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_0weym")
+region_enabled = true
+region_rect = Rect2(144, 32, 32, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_jkyt8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_elbkp")
+frame_progress = 0.9638726
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
