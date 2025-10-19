@@ -522,6 +522,6 @@ position = Vector2(-392, -40)
 line = NodePath("../SonicPath")
 
 [node name="Player" parent="." instance=ExtResource("2_ojxdx")]
-position = Vector2(232, -88)
+position = Vector2(32, 168)
 
 [connection signal="body_entered" from="CutSceneTrigger" to="." method="_on_cut_scene_trigger_body_entered"]
