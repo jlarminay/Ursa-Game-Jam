@@ -57,3 +57,9 @@ func start_final_cutscene() -> void:
     "Hip Hip Hooray! Hip Hip Hooray! Hip Hip Hooray!",
   ])
   Game.can_player_move = true
+
+  # wait 6 seconds
+  await get_tree().create_timer(6.0).timeout
+
+  # go to credits
+  get_tree().change_scene_to_file("res://Levels/Credits.tscn")

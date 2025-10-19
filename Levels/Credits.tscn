@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b8pchfbv8ax8f"]
 
 [ext_resource type="Theme" path="res://UI/credits-theme.tres" id="1_ls5v6"]
-[ext_resource type="Script" path="res://Levels/credits.gd" id="1_pqt5f"]
+[ext_resource type="Script" uid="uid://cfbry75tencam" path="res://Levels/credits.gd" id="1_pqt5f"]
 [ext_resource type="AudioStream" uid="uid://cqa2ux5aoymet" path="res://Sounds/Music/Farewell [8-bit Game Music - End Credits Theme] - Cerberus Alpha 3000 (youtube).mp3" id="2_fj3aq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pqt5f"]
@@ -16,9 +16,6 @@ offset_top = -160.0
 offset_right = 224.0
 offset_bottom = 160.0
 color = Color(0.080783375, 0.08078333, 0.080783345, 1)
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_fj3aq")
 
 [node name="PlayerCamera" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
@@ -201,5 +198,8 @@ position = Vector2(-4, 872)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D2"]
 position = Vector2(-4, 0)
 shape = SubResource("RectangleShape2D_pqt5f")
+
+[node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_fj3aq")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
