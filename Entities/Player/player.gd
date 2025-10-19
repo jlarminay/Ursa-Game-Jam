@@ -125,7 +125,6 @@ func play_animation(force: bool = false) -> void:
     animation_name = "dead"
 
   # Check if animation exists before playing
-  print("Playing animation: ", animation_name) # --- IGNORE ---
   if animated_sprite.sprite_frames and animated_sprite.sprite_frames.has_animation(animation_name):
     animated_sprite.play(animation_name)
 
