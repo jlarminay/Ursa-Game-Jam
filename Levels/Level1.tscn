@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://dfosicdamxxx8"]
+[gd_scene load_steps=14 format=4 uid="uid://dfosicdamxxx8"]
 
 [ext_resource type="TileSet" uid="uid://du7kqlfor3c0l" path="res://Sprites/Tilemaps/TileSet.tres" id="1_fhqol"]
 [ext_resource type="Script" uid="uid://b4evjsj6ay6l7" path="res://Levels/level_1.gd" id="1_p5226"]
@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://de2wwk1s42gmy" path="res://Entities/Bird/Bird.tscn" id="7_dl8mf"]
 [ext_resource type="PackedScene" uid="uid://d354i6445ugnl" path="res://Entities/MainMenuWalker/MainMenuWalker.tscn" id="8_xcayt"]
 [ext_resource type="PackedScene" uid="uid://bc03gtg12ug7t" path="res://Entities/SignPost/SignPost.tscn" id="9_5g41i"]
+[ext_resource type="PackedScene" uid="uid://bnoklckdnnx6n" path="res://Entities/AnimalObstacle/AnimalObstacle.tscn" id="12_tuji2"]
+[ext_resource type="PackedScene" uid="uid://tk14juuejqmb" path="res://Entities/Item/Item.tscn" id="13_f5cpa"]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_p5226")
@@ -163,6 +165,7 @@ position = Vector2(160, -168)
 
 [node name="Tree42" parent="Trees" instance=ExtResource("5_nutv8")]
 position = Vector2(208, -232)
+custom_bees = true
 
 [node name="Tree43" parent="Trees" instance=ExtResource("5_nutv8")]
 position = Vector2(240, -224)
@@ -616,7 +619,7 @@ position = Vector2(464, -456)
 position = Vector2(440, -440)
 
 [node name="Tree140" parent="." instance=ExtResource("5_nutv8")]
-position = Vector2(8, -152)
+position = Vector2(16, -104)
 custom_bees = true
 
 [node name="Bushes" type="Node2D" parent="."]
@@ -708,36 +711,69 @@ position = Vector2(-120, 80)
 sprite_type = 1
 
 [node name="MainMenuWalker10" parent="Wildlife" instance=ExtResource("8_xcayt")]
-position = Vector2(8, -144)
+position = Vector2(208, -232)
 sprite_type = 1
 
 [node name="MainMenuWalker11" parent="Wildlife" instance=ExtResource("8_xcayt")]
-position = Vector2(16, -160)
+position = Vector2(216, -248)
 sprite_type = 1
 
 [node name="MainMenuWalker12" parent="Wildlife" instance=ExtResource("8_xcayt")]
-position = Vector2(0, -136)
+position = Vector2(200, -224)
 sprite_type = 1
 
 [node name="MainMenuWalker13" parent="Wildlife" instance=ExtResource("8_xcayt")]
-position = Vector2(16, -144)
+position = Vector2(216, -232)
 sprite_type = 1
 
 [node name="MainMenuWalker14" parent="Wildlife" instance=ExtResource("8_xcayt")]
-position = Vector2(0, -152)
+position = Vector2(200, -240)
 sprite_type = 1
 
 [node name="MainMenuWalker15" parent="Wildlife" instance=ExtResource("8_xcayt")]
-position = Vector2(0, -160)
+position = Vector2(200, -248)
 sprite_type = 1
 
 [node name="MainMenuWalker16" parent="Wildlife" instance=ExtResource("8_xcayt")]
-position = Vector2(24, -152)
+position = Vector2(224, -240)
 sprite_type = 1
 
 [node name="SignPost" parent="." instance=ExtResource("9_5g41i")]
 position = Vector2(32, -16)
 sign_text = Array[String](["WARNING!\\nOstriches are fast runners and can be aggressive if approached."])
+
+[node name="AnimalObstacle" parent="." instance=ExtResource("12_tuji2")]
+position = Vector2(224, -400)
+animal = "Bear"
+direction = "Down"
+
+[node name="Item" parent="." instance=ExtResource("13_f5cpa")]
+position = Vector2(-16, -96)
+item = "Honey"
+
+[node name="AnimalObstacle2" parent="." instance=ExtResource("12_tuji2")]
+position = Vector2(-16, -120)
+animal = "Rabbit"
+direction = "Up"
+
+[node name="Item2" parent="." instance=ExtResource("13_f5cpa")]
+position = Vector2(280, -280)
+item = "Carrot"
+
+[node name="Bush6" parent="." instance=ExtResource("6_05pb0")]
+position = Vector2(288, -312)
+
+[node name="Bush7" parent="." instance=ExtResource("6_05pb0")]
+position = Vector2(320, -312)
+
+[node name="AnimalObstacle3" parent="." instance=ExtResource("12_tuji2")]
+position = Vector2(248, -280)
+animal = "Pig"
+direction = "Left"
+
+[node name="Item3" parent="." instance=ExtResource("13_f5cpa")]
+position = Vector2(64, 40)
+item = "Apple"
 
 [node name="Player" parent="." instance=ExtResource("2_iotdp")]
 position = Vector2(-16, 256)

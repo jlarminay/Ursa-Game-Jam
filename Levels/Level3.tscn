@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://du5bkq88isepp"]
+[gd_scene load_steps=12 format=4 uid="uid://du5bkq88isepp"]
 
 [ext_resource type="TileSet" uid="uid://du7kqlfor3c0l" path="res://Sprites/Tilemaps/TileSet.tres" id="1_jon3f"]
 [ext_resource type="Script" uid="uid://yum8x56rptsc" path="res://Levels/level_3.gd" id="1_vybwq"]
@@ -8,6 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://ckpaj8fo8s2qc" path="res://Entities/Ostrich/Ostrich.tscn" id="4_8eiv4"]
 [ext_resource type="PackedScene" uid="uid://b2rirfjksfe64" path="res://Entities/Tree/Bush.tscn" id="5_vybwq"]
 [ext_resource type="PackedScene" uid="uid://d2d7fg3abbf3e" path="res://Entities/Tree/Tree.tscn" id="6_4cgce"]
+[ext_resource type="PackedScene" uid="uid://bnoklckdnnx6n" path="res://Entities/AnimalObstacle/AnimalObstacle.tscn" id="9_q5lgr"]
+[ext_resource type="PackedScene" uid="uid://tk14juuejqmb" path="res://Entities/Item/Item.tscn" id="10_hy5j1"]
+[ext_resource type="PackedScene" uid="uid://dpxbk7imdakaq" path="res://Entities/CuttableObject/CuttableObject.tscn" id="11_xxxi4"]
 
 [node name="Level3" type="Node2D"]
 script = ExtResource("1_vybwq")
@@ -529,6 +532,40 @@ position = Vector2(-24, -168)
 [node name="Tree126" parent="Trees" instance=ExtResource("6_4cgce")]
 position = Vector2(435, -1048)
 scale = Vector2(1.4, 1.4)
+
+[node name="AnimalObstacle" parent="." instance=ExtResource("9_q5lgr")]
+position = Vector2(376, -936)
+animal = "Bear"
+direction = "Down"
+
+[node name="Item" parent="." instance=ExtResource("10_hy5j1")]
+position = Vector2(264, -16)
+item = "Honey"
+
+[node name="AnimalObstacle2" parent="." instance=ExtResource("9_q5lgr")]
+position = Vector2(264, -40)
+animal = "Rabbit"
+direction = "Up"
+
+[node name="Item2" parent="." instance=ExtResource("10_hy5j1")]
+position = Vector2(0, -560)
+item = "Carrot"
+
+[node name="AnimalObstacle3" parent="." instance=ExtResource("9_q5lgr")]
+position = Vector2(64, -560)
+animal = "Pig"
+direction = "Right"
+
+[node name="Item3" parent="." instance=ExtResource("10_hy5j1")]
+position = Vector2(400, -240)
+item = "Apple"
+
+[node name="CuttableObject" parent="." instance=ExtResource("11_xxxi4")]
+position = Vector2(400, -312)
+
+[node name="Item4" parent="." instance=ExtResource("10_hy5j1")]
+position = Vector2(56, -680)
+item = "Axe"
 
 [node name="Player" parent="." instance=ExtResource("2_8eiv4")]
 position = Vector2(160, 192)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://bbwq611ja6nfa"]
+[gd_scene load_steps=11 format=4 uid="uid://bbwq611ja6nfa"]
 
 [ext_resource type="Script" uid="uid://1aw51ei3fb61" path="res://Levels/level_2.gd" id="1_jglcl"]
 [ext_resource type="TileSet" uid="uid://du7kqlfor3c0l" path="res://Sprites/Tilemaps/TileSet.tres" id="1_nn734"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ckpaj8fo8s2qc" path="res://Entities/Ostrich/Ostrich.tscn" id="5_v115i"]
 [ext_resource type="PackedScene" uid="uid://dpxbk7imdakaq" path="res://Entities/CuttableObject/CuttableObject.tscn" id="8_m3ha0"]
 [ext_resource type="PackedScene" uid="uid://tk14juuejqmb" path="res://Entities/Item/Item.tscn" id="9_vd23k"]
+[ext_resource type="PackedScene" uid="uid://bnoklckdnnx6n" path="res://Entities/AnimalObstacle/AnimalObstacle.tscn" id="10_x7rwe"]
 
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_jglcl")
@@ -70,12 +71,36 @@ points = PackedVector2Array(-162, -82, 206, -82, -162, -82)
 width = 2.0
 default_color = Color(1, 1, 0, 1)
 
-[node name="Player" parent="." instance=ExtResource("2_506po")]
-position = Vector2(160, 104)
-
 [node name="CuttableObject" parent="." instance=ExtResource("8_m3ha0")]
 position = Vector2(480, 56)
 
 [node name="Item" parent="." instance=ExtResource("9_vd23k")]
-position = Vector2(400, 16)
+position = Vector2(584, -552)
 item = "Axe"
+
+[node name="AnimalObstacle" parent="." instance=ExtResource("10_x7rwe")]
+position = Vector2(288, -640)
+animal = "Rabbit"
+direction = "Up"
+
+[node name="AnimalObstacle2" parent="." instance=ExtResource("10_x7rwe")]
+position = Vector2(496, -928)
+animal = "Bear"
+direction = "Down"
+
+[node name="Item2" parent="." instance=ExtResource("9_vd23k")]
+position = Vector2(312, -304)
+item = "Carrot"
+
+[node name="Item3" parent="." instance=ExtResource("9_vd23k")]
+position = Vector2(232, 96)
+item = "Honey"
+
+[node name="Player" parent="." instance=ExtResource("2_506po")]
+position = Vector2(160, 104)
+
+[node name="Chicken3" parent="." instance=ExtResource("4_506po")]
+position = Vector2(496, -488)
+
+[node name="Chicken4" parent="." instance=ExtResource("4_506po")]
+position = Vector2(336, -488)
