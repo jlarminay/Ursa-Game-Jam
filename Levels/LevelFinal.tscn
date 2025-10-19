@@ -501,6 +501,7 @@ position = Vector2(120, -184)
 position = Vector2(304, -200)
 
 [node name="PlayerPath" type="Line2D" parent="."]
+visible = false
 points = PackedVector2Array(232, -112, 232.00003, -138.86754, 232.00003, -165.56715, 232.00003, -200.95967, 232.00003, -237.59401, 232, -272, 264, -272)
 width = 3.0
 

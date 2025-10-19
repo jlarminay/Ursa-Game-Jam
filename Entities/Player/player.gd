@@ -16,6 +16,7 @@ var held_item: String = "None"
 var item_scene = preload("res://Entities/Item/Item.tscn")
 var speed: int = 150
 var dead_animation_played: bool = false
+var block_animation_update: bool = false
 
 # Animation state
 var last_direction: String = "Down" # Down, Up, Side
@@ -41,13 +42,13 @@ func _process(_delta: float) -> void:
 
   # Drop item
   if Input.is_action_pressed("Drop") and held_item != "None":
+    play_sound(sound_drop)
     var item_instance = item_scene.instantiate()
     item_instance.item = held_item
     item_instance.global_position = global_position
     item_instance.recently_dropped = true
     get_tree().current_scene.add_child(item_instance)
     held_item = "None"
-    play_sound(sound_drop)
 
   var vector = Vector2(
     Input.get_action_strength("Right") - Input.get_action_strength("Left"),
@@ -70,7 +71,8 @@ func _process(_delta: float) -> void:
   if was_idle and current_action == "run":
     play_sound(sound_walking)
 
-  play_animation()
+  if not block_animation_update:
+    play_animation()
   update_held_item_hud()
 func play_sound(stream: AudioStream) -> void:
   if sound_player and stream:
@@ -85,6 +87,11 @@ func on_item_pickup(item_name: String) -> void:
   # Call this when the player picks up an item
   held_item = item_name
   play_sound(sound_pickup)
+  update_held_item_hud()
+
+func remove_item() -> void:
+  # Remove the currently held item without dropping it
+  held_item = "None"
   update_held_item_hud()
 
 func update_direction(movement_vector: Vector2) -> void:
@@ -102,8 +109,10 @@ func update_direction(movement_vector: Vector2) -> void:
     last_direction = "Up"
     animated_sprite.flip_h = false
 
-func play_animation() -> void:
+func play_animation(force: bool = false) -> void:
   if not animated_sprite:
+    return
+  if block_animation_update and not force:
     return
 
   var animation_name = current_action + last_direction
@@ -113,6 +122,7 @@ func play_animation() -> void:
     animation_name = "dead"
 
   # Check if animation exists before playing
+  print("Playing animation: ", animation_name) # --- IGNORE ---
   if animated_sprite.sprite_frames and animated_sprite.sprite_frames.has_animation(animation_name):
     animated_sprite.play(animation_name)
 
@@ -120,11 +130,6 @@ func set_action(action: String) -> void:
   """Set the current action"""
   current_action = action
   play_animation()
-
-func _on_animated_sprite_2d_animation_finished() -> void:
-  if current_action == "dead":
-    # Stop the animation by setting speed to 0
-    animated_sprite.speed_scale = 0
 
 func update_held_item_hud() -> void:
   """Update the HUD to show the currently held item"""
@@ -140,3 +145,15 @@ func update_held_item_hud() -> void:
 func show_crown() -> void:
   """Make the crown visible on the player"""
   crown.visible = true
+
+func play_cutting_animation() -> void:
+  """Play the cutting animation twice, with sound, and return when done (use with await)"""
+  block_animation_update = true
+  last_direction = "Down"
+  current_action = "axe"
+  for i in range(2):
+    play_animation(true)
+    play_sound(sound_hit)
+    await get_tree().create_timer(1.3).timeout # short delay to separate sounds
+  animated_sprite.stop()
+  block_animation_update = false

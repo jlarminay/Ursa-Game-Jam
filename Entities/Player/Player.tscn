@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://dtjbrby2lwwfa"]
+[gd_scene load_steps=66 format=3 uid="uid://dtjbrby2lwwfa"]
 
 [ext_resource type="Script" uid="uid://bptg81vposyrs" path="res://Entities/Player/player.gd" id="1_kpjcp"]
 [ext_resource type="Texture2D" uid="uid://c70h5atnw3u2f" path="res://Entities/Player/Dead.png" id="2_hj1c0"]
@@ -13,8 +13,33 @@
 [ext_resource type="AudioStream" uid="uid://fg7sy8tbfdqw" path="res://Entities/Player/game-over.mp3" id="6_gallu"]
 [ext_resource type="FontFile" uid="uid://dkfpclcycdhur" path="res://UI/smallest_pixel-7.ttf" id="6_hj1c0"]
 [ext_resource type="Texture2D" uid="uid://cer15rd1a7kfl" path="res://UI/0.2.png" id="8_761t5"]
+[ext_resource type="Texture2D" uid="uid://d0fxnvu6waigv" path="res://Entities/Player/Axe.png" id="8_samso"]
 [ext_resource type="PackedScene" uid="uid://tk14juuejqmb" path="res://Entities/Item/Item.tscn" id="9_761t5"]
 [ext_resource type="Texture2D" uid="uid://lujid7wktgiq" path="res://Entities/Player/crown.png" id="10_hacra"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_knby3"]
+atlas = ExtResource("8_samso")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7nwl0"]
+atlas = ExtResource("8_samso")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xywnf"]
+atlas = ExtResource("8_samso")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k7two"]
+atlas = ExtResource("8_samso")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6o43"]
+atlas = ExtResource("8_samso")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0k8yw"]
+atlas = ExtResource("8_samso")
+region = Rect2(160, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f2hyx"]
 atlas = ExtResource("2_hj1c0")
@@ -178,6 +203,29 @@ region = Rect2(224, 32, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_samso"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_knby3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7nwl0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xywnf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k7two")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t6o43")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0k8yw")
+}],
+"loop": true,
+"name": &"axeDown",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_f2hyx")
@@ -352,9 +400,7 @@ sound_game_over = ExtResource("6_gallu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_samso")
-animation = &"dead"
-frame = 1
-frame_progress = 0.2690771
+animation = &"axeDown"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_t38ms")
