@@ -5,7 +5,7 @@ extends Node2D
 
 var player: CharacterBody2D
 var throw_cooldown_timer: float = 0.0
-var throw_cooldown: float = 0.02
+var throw_cooldown: float = 1
 var detection_distance: float = 100.0
 var line_visibility_distance: float = 200.0
 

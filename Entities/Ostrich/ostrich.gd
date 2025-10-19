@@ -2,10 +2,11 @@ extends Area2D
 
 @export var line: Line2D
 @export var speed: float = 100.0
+@export var reverse: bool = false
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 var player: CharacterBody2D
-var current_point_index: int = 1
+var current_point_index: int
 
 func _ready() -> void:
   line.visible = false
@@ -16,9 +17,16 @@ func _ready() -> void:
   # Set up collision detection for game over
   body_entered.connect(_on_body_entered)
 
-  # Start at point 0 (first point) - convert to global position
+  # Set starting position based on reverse direction
   if line and line.get_point_count() > 0:
-    global_position = line.to_global(line.get_point_position(0))
+    if reverse:
+      # Start at last point when reverse is true
+      current_point_index = line.get_point_count() - 2
+      global_position = line.to_global(line.get_point_position(line.get_point_count() - 1))
+    else:
+      # Start at first point when reverse is false
+      current_point_index = 1
+      global_position = line.to_global(line.get_point_position(0))
 
 func _process(delta: float) -> void:
   if not line or line.get_point_count() < 2:
@@ -39,12 +47,19 @@ func patrol_along_line(delta: float) -> void:
 
   # Check if reached target
   if global_position.distance_to(target_position) < 1.0:
-    # Move to next point (always forward)
-    current_point_index += 1
-
-    # Loop back to beginning when reaching the end
-    if current_point_index >= line.get_point_count():
-      current_point_index = 0
+    # Move to next point based on reverse direction
+    if reverse:
+      # Moving backwards through points
+      current_point_index -= 1
+      # Loop to end when reaching the beginning
+      if current_point_index < 0:
+        current_point_index = line.get_point_count() - 1
+    else:
+      # Moving forwards through points
+      current_point_index += 1
+      # Loop back to beginning when reaching the end
+      if current_point_index >= line.get_point_count():
+        current_point_index = 0
 
 func update_animation(direction: Vector2) -> void:
   if not animated_sprite:
