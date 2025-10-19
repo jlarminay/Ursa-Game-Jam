@@ -14,11 +14,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-  match item:
-    "Carrot": _animated_sprite.play("Carrot")
-    "Flowers": _animated_sprite.play("Flowers")
-    "Honey": _animated_sprite.play("Honey")
-    "Apple": _animated_sprite.play("Apple")
+  _animated_sprite.play(item)
 
   # if distance > 5 then set rd false
   if global_position.distance_to(player.global_position) > regrab_threshold:
