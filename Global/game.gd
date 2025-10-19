@@ -28,6 +28,9 @@ func next_level():
   elif current_scene == "Level3":
     get_tree().change_scene_to_file("res://Levels/LevelFinal.tscn")
 
+func main_menu():
+  get_tree().change_scene_to_file("res://Levels/MainMenu.tscn")
+
 func restart():
   game_over = false
   level_success = false

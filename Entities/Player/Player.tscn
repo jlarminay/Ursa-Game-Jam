@@ -332,8 +332,8 @@ animations = [{
 radius = 8.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_kpjcp"]
-font_size = 241
-font_color = Color(0, 0, 1, 1)
+font = ExtResource("6_hj1c0")
+font_size = 90
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 18
@@ -352,7 +352,6 @@ shape = SubResource("CircleShape2D_t38ms")
 zoom = Vector2(3, 3)
 
 [node name="UIControl" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -363,46 +362,51 @@ script = ExtResource("3_e80uo")
 anchors_preset = 0
 offset_left = -336.0
 offset_top = -258.0
-offset_right = 2032.0
-offset_bottom = 1534.0
+offset_right = 1565.7173
+offset_bottom = 1196.6719
 scale = Vector2(0.28185052, 0.28185052)
 
 [node name="ColorRect" type="ColorRect" parent="UIControl/GameOverScreen"]
 layout_mode = 0
-offset_left = -96.0
-offset_top = -64.0
-offset_right = 2560.0
-offset_bottom = 1920.0
+offset_left = 425.75763
+offset_top = 319.31818
+offset_right = 1958.4851
+offset_bottom = 1511.4395
 color = Color(0, 0, 0, 0.3647059)
 
 [node name="Label" type="Label" parent="UIControl/GameOverScreen"]
 layout_mode = 0
-offset_left = 544.0
-offset_top = 480.0
-offset_right = 1886.0
-offset_bottom = 809.0
-text = "YOU SUVCK"
+offset_left = 482.5253
+offset_top = 659.9243
+offset_right = 1901.7173
+offset_bottom = 783.0809
+text = "You Have Been Slain"
 label_settings = SubResource("LabelSettings_kpjcp")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Restart" type="Button" parent="UIControl/GameOverScreen"]
+[node name="Retry" type="Button" parent="UIControl/GameOverScreen"]
 layout_mode = 0
-offset_left = 768.0
-offset_top = 832.0
-offset_right = 1088.0
-offset_bottom = 960.0
-theme_override_font_sizes/font_size = 64
-text = "Restart"
+offset_left = 993.4344
+offset_top = 886.995
+offset_right = 1390.8081
+offset_bottom = 943.7627
+theme = ExtResource("5_t38ms")
+theme_override_font_sizes/font_size = 40
+text = "Try Again"
 
-[node name="Exit" type="Button" parent="UIControl/GameOverScreen"]
+[node name="MainMenu" type="Button" parent="UIControl/GameOverScreen"]
 layout_mode = 0
-offset_left = 1280.0
-offset_top = 832.0
-offset_right = 1600.0
-offset_bottom = 960.0
-theme_override_font_sizes/font_size = 64
-text = "Exit"
+offset_left = 993.4344
+offset_top = 972.14655
+offset_right = 1390.8079
+offset_bottom = 1028.9143
+theme = ExtResource("5_t38ms")
+theme_override_font_sizes/font_size = 40
+text = "Give Up"
 
 [node name="SuccessScreen" type="Control" parent="UIControl"]
+visible = false
 anchors_preset = 0
 offset_left = -336.0
 offset_top = -258.0
@@ -446,6 +450,7 @@ theme_override_font_sizes/font_size = 64
 text = "Exit"
 
 [node name="TextBox" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -490,7 +495,7 @@ region_rect = Rect2(0, 0, 48, 48)
 position = Vector2(-176, -128)
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
-[connection signal="pressed" from="UIControl/GameOverScreen/Restart" to="UIControl" method="_on_restart_pressed"]
-[connection signal="pressed" from="UIControl/GameOverScreen/Exit" to="UIControl" method="_on_exit_pressed"]
+[connection signal="pressed" from="UIControl/GameOverScreen/Retry" to="UIControl" method="_on_retry_pressed"]
+[connection signal="pressed" from="UIControl/GameOverScreen/MainMenu" to="UIControl" method="_on_main_menu_pressed"]
 [connection signal="pressed" from="UIControl/SuccessScreen/NextLevel" to="UIControl" method="_on_next_level_pressed"]
 [connection signal="pressed" from="UIControl/SuccessScreen/Exit" to="UIControl" method="_on_exit_pressed"]

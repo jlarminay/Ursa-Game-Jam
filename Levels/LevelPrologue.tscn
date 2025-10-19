@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://castxarheficl" path="res://Levels/prologue.gd" id="1_jhsop"]
 [ext_resource type="PackedScene" uid="uid://d35ih62q7bbc3" path="res://Entities/Sonic/Sonic.tscn" id="2_rtehk"]
 [ext_resource type="PackedScene" uid="uid://dtjbrby2lwwfa" path="res://Entities/Player/Player.tscn" id="3_jhsop"]
-[ext_resource type="PackedScene" uid="uid://bf7gm157ptwhq" path="res://Entities/Fountain.tscn" id="3_krntn"]
+[ext_resource type="PackedScene" uid="uid://bf7gm157ptwhq" path="res://Entities/Fountain/Fountain.tscn" id="3_krntn"]
 [ext_resource type="PackedScene" uid="uid://bkdgckbdt7ct2" path="res://Entities/Ending/Ending.tscn" id="4_rtehk"]
 [ext_resource type="PackedScene" uid="uid://cwlhivnoad3ap" path="res://Entities/NPC/NPC.tscn" id="6_ri6a4"]
 [ext_resource type="PackedScene" uid="uid://d2d7fg3abbf3e" path="res://Entities/Tree/Tree.tscn" id="8_tsk5r"]

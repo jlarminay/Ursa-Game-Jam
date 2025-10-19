@@ -8,3 +8,7 @@ func _ready() -> void:
   var skin_index = randi() % 4 + 1
   # play animation of name
   animated_sprite.play(str(skin_index))
+
+  # set random starting frame (0-3)
+  var starting_frame = randi() % 4
+  animated_sprite.frame = starting_frame

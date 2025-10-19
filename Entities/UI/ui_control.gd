@@ -30,6 +30,9 @@ func _on_restart_pressed() -> void:
 func _on_exit_pressed() -> void:
   Game.exit()
 
+func _on_retry_pressed() -> void:
+  Game.restart()
 
-func _on_next_level_pressed() -> void:
-  pass # Replace with function body.
+
+func _on_main_menu_pressed() -> void:
+  Game.main_menu()
