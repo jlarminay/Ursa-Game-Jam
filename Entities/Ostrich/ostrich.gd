@@ -8,59 +8,60 @@ var player: CharacterBody2D
 var current_point_index: int = 1
 
 func _ready() -> void:
-  # Find the player by node name
-  player = get_tree().current_scene.find_child("Player", true, false)
+    # Find the player by node name
+    player = get_tree().current_scene.find_child("Player", true, false)
 
-  # Set up collision detection for game over
-  body_entered.connect(_on_body_entered)
+    # Set up collision detection for game over
+    body_entered.connect(_on_body_entered)
 
-  # Start at point 0 (first point)
-  if line and line.get_point_count() > 0:
-    global_position = line.get_point_position(0)
+    # Start at point 0 (first point) - convert to global position
+    if line and line.get_point_count() > 0:
+        global_position = line.to_global(line.get_point_position(0))
 
 func _process(delta: float) -> void:
-  if not line or line.get_point_count() < 2:
-    return
+    if not line or line.get_point_count() < 2:
+        return
 
-  patrol_along_line(delta)
+    patrol_along_line(delta)
 
 func patrol_along_line(delta: float) -> void:
-  # Get target point
-  var target_position = line.get_point_position(current_point_index)
+    # Get target point and convert to global coordinates
+    var local_target = line.get_point_position(current_point_index)
+    var target_position = line.to_global(local_target)
 
-  # Calculate movement direction for animation
-  var movement_direction = (target_position - global_position).normalized()
-  update_animation(movement_direction)
+    # Calculate movement direction for animation
+    var movement_direction = (target_position - global_position).normalized()
+    update_animation(movement_direction)
 
-  # Move towards target
-  global_position = global_position.move_toward(target_position, speed * delta)
+    # Move towards target
+    global_position = global_position.move_toward(target_position, speed * delta)
 
-  # Check if reached target
-  if global_position.distance_to(target_position) < 1.0:
-    # Move to next point (always forward)
-    current_point_index += 1
+    # Check if reached target
+    if global_position.distance_to(target_position) < 1.0:
+        # Move to next point (always forward)
+        current_point_index += 1
 
-    # Loop back to beginning when reaching the end
-    if current_point_index >= line.get_point_count():
-      current_point_index = 0
+        # Loop back to beginning when reaching the end
+        if current_point_index >= line.get_point_count():
+            current_point_index = 0
 
 func update_animation(direction: Vector2) -> void:
-  if not animated_sprite:
-    return
+    if not animated_sprite:
+        return
 
-  # Determine which animation to play based on movement direction
-  # Horizontal movement takes priority over vertical
-  if abs(direction.x) > abs(direction.y):
-    animated_sprite.play("runSide")
-    # Flip sprite based on direction (fixed)
-    animated_sprite.flip_h = direction.x > 0 # Flip when moving right
-  elif direction.y > 0:
-    animated_sprite.play("runDown")
-    animated_sprite.flip_h = false
-  else:
-    animated_sprite.play("runUp")
-    animated_sprite.flip_h = false
+    # Determine which animation to play based on movement direction
+    # Horizontal movement takes priority over vertical
+    if abs(direction.x) > abs(direction.y):
+        animated_sprite.play("runSide")
+        # Flip sprite based on direction (fixed)
+        animated_sprite.flip_h = direction.x > 0 # Flip when moving right
+    elif direction.y > 0:
+        animated_sprite.play("runDown")
+        animated_sprite.flip_h = false
+    else:
+        animated_sprite.play("runUp")
+        animated_sprite.flip_h = false
 
 func _on_body_entered(body: Node) -> void:
-  if body.name == "Player":
-    Game.game_over = true
+    if body.name == "Player":
+        Game.game_over = true

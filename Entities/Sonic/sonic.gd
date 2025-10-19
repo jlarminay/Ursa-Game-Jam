@@ -49,8 +49,9 @@ func _process(delta: float) -> void:
 
   if index >= line.get_point_count():
     index = line.get_point_count() - 1
-    # Game.game_over = true
-    queue_free()
+    # turn to look at player ->
+    animated_sprite.flip_h = false
+    return
 
 func update_direction(vel: Vector2) -> void:
   # Horizontal movement takes priority

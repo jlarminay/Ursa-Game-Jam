@@ -1,11 +1,5 @@
 extends Node
 
-@onready var levelPrologue = preload("res://Levels/LevelPrologue.tscn")
-@onready var level1 = preload("res://Levels/Level1.tscn")
-@onready var level2 = preload("res://Levels/Level2.tscn")
-@onready var level3 = preload("res://Levels/Level3.tscn")
-@onready var levelFinal = preload("res://Levels/LevelFinal.tscn")
-
 var can_player_move: bool = true
 var game_over: bool = false
 var level_success: bool = false
@@ -30,7 +24,7 @@ func next_level():
   elif current_scene == "Level1":
     get_tree().change_scene_to_file("res://Levels/Level2.tscn")
   elif current_scene == "Level2":
-    get_tree().change_scene_to_file("res://Levels/Level3.tscn")
+    get_tree().change_scene_to_file("res://Levels/Level23.tscn")
   elif current_scene == "Level3":
     get_tree().change_scene_to_file("res://Levels/LevelFinal.tscn")
 

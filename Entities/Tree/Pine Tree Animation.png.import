@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpwni5ehcj7yw"
-path="res://.godot/imported/bushes.png-87038399d4a9f35c238a2d08a4c9323e.ctex"
+uid="uid://b7mheuo3mj10v"
+path="res://.godot/imported/Pine Tree Animation.png-f6c75c42c97772f49e3047812c40d8b3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Tilemaps/bushes.png"
-dest_files=["res://.godot/imported/bushes.png-87038399d4a9f35c238a2d08a4c9323e.ctex"]
+source_file="res://Entities/Tree/Pine Tree Animation.png"
+dest_files=["res://.godot/imported/Pine Tree Animation.png-f6c75c42c97772f49e3047812c40d8b3.ctex"]
 
 [params]
 

@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://d4k5r6mcqkqq0"]
+
+[ext_resource type="Texture2D" uid="uid://b5pvyn7gn5ex6" path="res://Entities/Cow/Male Cow Brown.png" id="1_qbshv"]
+[ext_resource type="Script" uid="uid://e5wh3av7dij" path="res://Entities/Cow/cow.gd" id="2_cjn02"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_23gfy"]
+atlas = ExtResource("1_qbshv")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7m3nk"]
+atlas = ExtResource("1_qbshv")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_og0ey"]
+atlas = ExtResource("1_qbshv")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3eek0"]
+atlas = ExtResource("1_qbshv")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ivvua"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_23gfy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7m3nk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_og0ey")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3eek0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Cow" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_ivvua")
+frame_progress = 0.13754511
+script = ExtResource("2_cjn02")

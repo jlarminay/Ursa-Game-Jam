@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://b2rirfjksfe64"]
+
+[ext_resource type="Script" uid="uid://bdh7s3dv0uy6l" path="res://Entities/Tree/bush.gd" id="1_llo2y"]
+[ext_resource type="Texture2D" uid="uid://ce0iw1qpn1g8c" path="res://Entities/Tree/Tree.png" id="2_c4i2n"]
+[ext_resource type="Texture2D" uid="uid://cpwni5ehcj7yw" path="res://Entities/Tree/bushes.png" id="3_llo2y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7v7vd"]
+size = Vector2(32, 32)
+
+[node name="Bush" type="StaticBody2D"]
+scale = Vector2(0.75, 0.75)
+disable_mode = 1
+collision_layer = 2
+script = ExtResource("1_llo2y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7v7vd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_c4i2n")
+region_enabled = true
+region_rect = Rect2(0, 104, 32, 24)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture = ExtResource("2_c4i2n")
+region_enabled = true
+region_rect = Rect2(32, 104, 32, 24)
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+texture = ExtResource("3_llo2y")
+region_enabled = true
+region_rect = Rect2(8, 64, 32, 32)
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+texture = ExtResource("3_llo2y")
+region_enabled = true
+region_rect = Rect2(56, 0, 32, 32)
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+texture = ExtResource("3_llo2y")
+region_enabled = true
+region_rect = Rect2(56, 128, 32, 32)
+
+[node name="Sprite2D6" type="Sprite2D" parent="."]
+texture = ExtResource("3_llo2y")
+region_enabled = true
+region_rect = Rect2(56, 224, 32, 32)
+
+[node name="Sprite2D7" type="Sprite2D" parent="."]
+texture = ExtResource("3_llo2y")
+region_enabled = true
+region_rect = Rect2(8, 192, 32, 32)

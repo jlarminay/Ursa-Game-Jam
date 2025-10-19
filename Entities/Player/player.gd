@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var SPEED: int = 300
 @onready var player_camera: Camera2D = $PlayerCamera
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var text_box: Control = $TextBox
 var held_item: String = "None"
 var item_scene = preload("res://Entities/Item/Item.tscn")
 
@@ -11,7 +12,7 @@ var last_direction: String = "Down" # Down, Up, Side
 var current_action: String = "idle" # idle, run
 
 func _ready() -> void:
-  pass
+  text_box.visible = false
 
 func _process(_delta: float) -> void:
   if Input.is_action_pressed("Drop") && not held_item == "None":

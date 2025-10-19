@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7mheuo3mj10v"
-path="res://.godot/imported/Pine Tree Animation.png-2b8260dd9492fe6285e5e5b72745b6c9.ctex"
+uid="uid://wedxg2ckd5ko"
+path="res://.godot/imported/Idle3.png-245641c7dfdb321cda92222dd64a33ef.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Tilemaps/Pine Tree Animation.png"
-dest_files=["res://.godot/imported/Pine Tree Animation.png-2b8260dd9492fe6285e5e5b72745b6c9.ctex"]
+source_file="res://Entities/NPC/Idle3.png"
+dest_files=["res://.godot/imported/Idle3.png-245641c7dfdb321cda92222dd64a33ef.ctex"]
 
 [params]
 

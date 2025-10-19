@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ce0iw1qpn1g8c"
-path="res://.godot/imported/Tree.png-4ef56c734fd931a1b1f17edcd693d8cf.ctex"
+uid="uid://cutglbtp3gxf7"
+path="res://.godot/imported/Bars.png-645cf11ce9ce89f7d72d5699c9115caf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Tilemaps/Tree.png"
-dest_files=["res://.godot/imported/Tree.png-4ef56c734fd931a1b1f17edcd693d8cf.ctex"]
+source_file="res://UI/Bars.png"
+dest_files=["res://.godot/imported/Bars.png-645cf11ce9ce89f7d72d5699c9115caf.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jkl4ryxxf6vm"
-path="res://.godot/imported/Maple Tree.png-0eaf0e64515085f44f77b535b9bac92f.ctex"
+uid="uid://0l1npclj6tou"
+path="res://.godot/imported/Bees.png-1da93d69ce3237392dd8533f00509086.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Tilemaps/Maple Tree.png"
-dest_files=["res://.godot/imported/Maple Tree.png-0eaf0e64515085f44f77b535b9bac92f.ctex"]
+source_file="res://Entities/MainMenuWalker/Bees.png"
+dest_files=["res://.godot/imported/Bees.png-1da93d69ce3237392dd8533f00509086.ctex"]
 
 [params]
 
