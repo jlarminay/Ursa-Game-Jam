@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://dpxbk7imdakaq"]
+
+[ext_resource type="Script" uid="uid://cx118uv7f6qfp" path="res://Entities/CuttableObject/cuttable_object.gd" id="1_87y3n"]
+[ext_resource type="Texture2D" uid="uid://chwm5mm5728xa" path="res://Entities/CuttableObject/Tree.png" id="1_xg5j2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_87y3n"]
+size = Vector2(32, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xg5j2"]
+size = Vector2(64, 64)
+
+[node name="CuttableObject" type="StaticBody2D"]
+collision_layer = 2
+script = ExtResource("1_87y3n")
+
+[node name="StaticBody2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_87y3n")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_xg5j2")
+region_enabled = true
+region_rect = Rect2(64, 144, 32, 48)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_xg5j2")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

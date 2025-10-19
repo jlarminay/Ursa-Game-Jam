@@ -2,7 +2,7 @@ extends Area2D
 
 
 @export var regrab_threshold: int
-@export_enum("Carrot", "Flowers", "Honey", "Apple") var item: String
+@export_enum("Carrot", "Flowers", "Honey", "Apple", "Axe", "Pickaxe") var item: String
 @onready var _animated_sprite = $AnimatedSprite2D
 var player: CharacterBody2D
 var recently_dropped = true
@@ -27,6 +27,6 @@ func _on_body_entered(body: Node2D) -> void:
   if (not body.name == 'Player'):
     return
 
-  if(body.held_item == "None"):
+  if (body.held_item == "None"):
     body.held_item = item
     queue_free()

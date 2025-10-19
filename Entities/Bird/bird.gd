@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var bird_audio: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 var player: CharacterBody2D
 var detection_distance: float = 100.0
@@ -37,6 +38,7 @@ func start_flying() -> void:
 
   is_flying = true
   fly_timer = fly_duration
+  bird_audio.play()
 
   # Calculate direction away from player with random offset
   var direction_from_player = (global_position - player.global_position).normalized()

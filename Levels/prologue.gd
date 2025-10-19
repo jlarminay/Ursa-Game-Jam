@@ -1,10 +1,14 @@
 extends Node2D
 
+@export var sound_air_horn: AudioStream
+@export var sound_tree_break: AudioStream
+@onready var music_player: AudioStreamPlayer2D = $MusicPlayer
 @onready var tree_obstacle: StaticBody2D = $TreeObstacle
 @onready var sonic: Node2D = $Sonic
 var tree_cut_scene: bool = false
 
 func _ready() -> void:
+  music_player.play()
   start_countdown_cutscene()
 
 func _on_tree_trigger_body_entered(body: Node2D) -> void:
@@ -25,11 +29,13 @@ func start_countdown_cutscene() -> void:
     "No funny business!",
     "Ready? Set... GO!"
   ])
+  AudioController.play_sound(sound_air_horn)
   Game.start_level()
 
 
 func start_tree_cutscene() -> void:
   # Create tween for tree movement
+  AudioController.play_sound(sound_tree_break)
   var tree_tween = create_tween()
   tree_tween.parallel().tween_property(tree_obstacle, "position:y", tree_obstacle.position.y + 40, 1.0)
   tree_tween.parallel().tween_property(tree_obstacle, "rotation_degrees", 30, 1.0)

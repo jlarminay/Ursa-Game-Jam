@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bpbtrugbhqsy8"
+path="res://.godot/imported/Skillowatt - Stay [Chiptune] Skeddles Music - Skeddles Music (youtube).mp3-d157a1f4b0471cd69f5acca8665bed6f.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Music/Skillowatt - Stay [Chiptune] Skeddles Music - Skeddles Music (youtube).mp3"
+dest_files=["res://.godot/imported/Skillowatt - Stay [Chiptune] Skeddles Music - Skeddles Music (youtube).mp3-d157a1f4b0471cd69f5acca8665bed6f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

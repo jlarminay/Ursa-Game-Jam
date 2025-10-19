@@ -1,14 +1,45 @@
-[gd_scene load_steps=53 format=3 uid="uid://dtjbrby2lwwfa"]
+[gd_scene load_steps=66 format=3 uid="uid://dtjbrby2lwwfa"]
 
 [ext_resource type="Script" uid="uid://bptg81vposyrs" path="res://Entities/Player/player.gd" id="1_kpjcp"]
 [ext_resource type="Texture2D" uid="uid://c70h5atnw3u2f" path="res://Entities/Player/Dead.png" id="2_hj1c0"]
+[ext_resource type="AudioStream" uid="uid://dgpiqn8kd6cf6" path="res://Entities/Player/walking.mp3" id="2_lmeus"]
 [ext_resource type="Texture2D" uid="uid://bwx5hjjdrjj88" path="res://Entities/Player/Idle.png" id="2_vweq0"]
 [ext_resource type="Texture2D" uid="uid://ds3kay56rc0ej" path="res://Entities/Player/Run.png" id="3_1des2"]
+[ext_resource type="AudioStream" uid="uid://bitauqjkwm2xa" path="res://Entities/Player/hurt.mp3" id="3_061yh"]
 [ext_resource type="Script" uid="uid://yrl0ghhvkkdg" path="res://Entities/UI/ui_control.gd" id="3_e80uo"]
+[ext_resource type="AudioStream" uid="uid://b0akgs0qxll2b" path="res://Entities/Player/pick-up.mp3" id="4_uw7o4"]
+[ext_resource type="AudioStream" uid="uid://chh35sdhdrx7j" path="res://Entities/Player/put-down.mp3" id="5_gallu"]
 [ext_resource type="Theme" uid="uid://blam67opkd3km" path="res://UI/theme.tres" id="5_t38ms"]
+[ext_resource type="AudioStream" uid="uid://fg7sy8tbfdqw" path="res://Entities/Player/game-over.mp3" id="6_gallu"]
 [ext_resource type="FontFile" uid="uid://dkfpclcycdhur" path="res://UI/smallest_pixel-7.ttf" id="6_hj1c0"]
 [ext_resource type="Texture2D" uid="uid://cer15rd1a7kfl" path="res://UI/0.2.png" id="8_761t5"]
+[ext_resource type="Texture2D" uid="uid://d0fxnvu6waigv" path="res://Entities/Player/Axe.png" id="8_samso"]
 [ext_resource type="PackedScene" uid="uid://tk14juuejqmb" path="res://Entities/Item/Item.tscn" id="9_761t5"]
+[ext_resource type="Texture2D" uid="uid://lujid7wktgiq" path="res://Entities/Player/crown.png" id="10_hacra"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_knby3"]
+atlas = ExtResource("8_samso")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7nwl0"]
+atlas = ExtResource("8_samso")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xywnf"]
+atlas = ExtResource("8_samso")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k7two"]
+atlas = ExtResource("8_samso")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6o43"]
+atlas = ExtResource("8_samso")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0k8yw"]
+atlas = ExtResource("8_samso")
+region = Rect2(160, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f2hyx"]
 atlas = ExtResource("2_hj1c0")
@@ -172,6 +203,29 @@ region = Rect2(224, 32, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_samso"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_knby3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7nwl0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xywnf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k7two")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t6o43")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0k8yw")
+}],
+"loop": true,
+"name": &"axeDown",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_f2hyx")
@@ -338,18 +392,28 @@ font_size = 90
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 50
 script = ExtResource("1_kpjcp")
+sound_walking = ExtResource("2_lmeus")
+sound_hit = ExtResource("3_061yh")
+sound_pickup = ExtResource("4_uw7o4")
+sound_drop = ExtResource("5_gallu")
+sound_game_over = ExtResource("6_gallu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_samso")
-animation = &"dead"
-frame = 1
-frame_progress = 0.2690771
+animation = &"axeDown"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_t38ms")
 
 [node name="PlayerCamera" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Crown" type="Sprite2D" parent="."]
+position = Vector2(-2.9802322e-08, -7)
+scale = Vector2(0.8999998, 0.8999999)
+texture = ExtResource("10_hacra")
 
 [node name="UIControl" type="Control" parent="."]
 layout_mode = 3
@@ -450,7 +514,6 @@ theme_override_font_sizes/font_size = 64
 text = "Exit"
 
 [node name="TextBox" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0

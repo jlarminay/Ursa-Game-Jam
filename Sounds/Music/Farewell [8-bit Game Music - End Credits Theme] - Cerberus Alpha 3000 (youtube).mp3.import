@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cqa2ux5aoymet"
+path="res://.godot/imported/Farewell [8-bit Game Music - End Credits Theme] - Cerberus Alpha 3000 (youtube).mp3-951998771c42134a0ab743e83fa19193.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Music/Farewell [8-bit Game Music - End Credits Theme] - Cerberus Alpha 3000 (youtube).mp3"
+dest_files=["res://.godot/imported/Farewell [8-bit Game Music - End Credits Theme] - Cerberus Alpha 3000 (youtube).mp3-951998771c42134a0ab743e83fa19193.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
